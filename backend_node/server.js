@@ -24,15 +24,26 @@ app.use((req, res, next) => {
     next();
 });
 
-// --- Initialize Clients ---
-const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+// --- Initialize Clients with Guards ---
+let twilioClient;
+try {
+    if (process.env.TWILIO_SID && process.env.TWILIO_AUTH) {
+        twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH);
     }
-});
+} catch (e) { console.warn("Twilio suppressed:", e.message); }
+
+let transporter;
+try {
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+    }
+} catch (e) { console.warn("Mailer suppressed:", e.message); }
 
 // --- Legacy Endpoints (SMS/Email) ---
 app.post('/api/send-sms', async (req, res) => {
