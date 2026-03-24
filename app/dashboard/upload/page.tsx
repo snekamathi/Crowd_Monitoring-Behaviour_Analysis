@@ -57,7 +57,7 @@ export default function UploadPage() {
         }
 
         try {
-            const response = await fetch('http://localhost:5001/api/upload', {
+            const response = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/upload', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData,

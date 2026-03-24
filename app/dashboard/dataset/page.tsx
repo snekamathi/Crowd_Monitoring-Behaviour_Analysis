@@ -34,8 +34,8 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         try {
             const [statsRes, validRes] = await Promise.all([
-                fetch('http://localhost:5001/api/dataset/stats', { headers: { 'Authorization': `Bearer ${token}` } }),
-                fetch('http://localhost:5001/api/dataset/validate', { headers: { 'Authorization': `Bearer ${token}` } })
+                fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/stats', { headers: { 'Authorization': `Bearer ${token}` } }),
+                fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/validate', { headers: { 'Authorization': `Bearer ${token}` } })
             ]);
             
             if (statsRes.ok && validRes.ok) {
@@ -55,7 +55,7 @@ export default function DatasetPage() {
         const pollStatus = setInterval(async () => {
             const token = localStorage.getItem("access_token");
             try {
-                const res = await fetch('http://localhost:5001/api/dataset/train/status', {
+                const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/train/status', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) setTrainStatus(await res.json());
@@ -76,7 +76,7 @@ export default function DatasetPage() {
         formData.append("split", uploadSplit);
 
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/upload', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/upload', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
@@ -103,7 +103,7 @@ export default function DatasetPage() {
         formData.append("video", video);
 
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/video-to-frames', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/video-to-frames', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
@@ -125,7 +125,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("sample");
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/sample', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/sample', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -144,7 +144,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("cleanup");
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/cleanup', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/cleanup', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -164,7 +164,7 @@ export default function DatasetPage() {
         if (!validation.valid || trainStatus.active) return;
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/train', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/train', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -183,7 +183,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("deploy");
         try {
-            const res = await fetch('http://localhost:5001/api/dataset/deploy', {
+            const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/deploy', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

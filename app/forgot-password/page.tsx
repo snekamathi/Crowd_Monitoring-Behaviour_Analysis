@@ -23,7 +23,7 @@ export default function ForgotPassword() {
         setError("");
         setLoading(true);
         try {
-            const response = await fetch("http://localhost:5001/api/forgot-password", {
+            const response = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),
@@ -58,7 +58,7 @@ export default function ForgotPassword() {
         }
         setLoading(true);
         try {
-            const response = await fetch("http://localhost:5001/api/reset-password", {
+            const response = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/reset-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token: resetToken, password: newPassword }),

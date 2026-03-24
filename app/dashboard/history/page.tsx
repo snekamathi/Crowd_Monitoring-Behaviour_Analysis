@@ -24,7 +24,7 @@ export default function AlertHistoryPage() {
         setLoading(true);
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch("http://localhost:5001/api/history", {
+            const res = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/history", {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
@@ -45,7 +45,7 @@ export default function AlertHistoryPage() {
     const handleExport = async () => {
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch("http://localhost:5001/api/history/export/csv", {
+            const res = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/history/export/csv", {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {

@@ -57,7 +57,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         // Global Alert Listener for Authority & Notifications for all
         const checkAlerts = async () => {
             try {
-                const res = await fetch('http://localhost:5001/api/stats', {
+                const res = await fetch('https://crowd-monitoring-behaviour-analysis.onrender.com/api/stats', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {

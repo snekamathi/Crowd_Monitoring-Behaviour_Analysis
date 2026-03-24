@@ -32,7 +32,7 @@ export default function SettingsPage() {
         const fetchSettings = async () => {
             try {
                 const token = localStorage.getItem("access_token");
-                const res = await fetch("http://localhost:5001/api/settings", {
+                const res = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/settings", {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -57,7 +57,7 @@ export default function SettingsPage() {
 
         try {
             const token = localStorage.getItem("access_token");
-            const res = await fetch("http://localhost:5001/api/settings", {
+            const res = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/settings", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export default function SettingsPage() {
     const handleTestAlert = async (type: 'sms' | 'email') => {
         try {
             // Requirement 9: Node Backend runs on 5000. Python API moved to 5001.
-            const url = `http://localhost:5000/api/send-${type}`;
+            const url = `https://crowd-monitoring-behaviour-analysis.onrender.com/api/send-${type}`;
             const timestamp = new Date().toLocaleString();
             
             const payload = type === 'sms' 

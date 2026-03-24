@@ -19,7 +19,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5001/api/login", {
+      const response = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
