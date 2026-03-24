@@ -1215,4 +1215,5 @@ def serve_uploaded_video(filename):
 
 if __name__ == '__main__':
     print("\nStarting CrowdSense AI Backend Pipelines...\n")
-    app.run(debug=False, host='0.0.0.0', port=5001, threaded=True)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(debug=False, host='0.0.0.0', port=port, threaded=True)
