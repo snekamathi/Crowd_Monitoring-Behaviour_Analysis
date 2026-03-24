@@ -84,10 +84,10 @@ with app.app_context():
     db_report_email = get_setting('report_email', '')
 
     detector = CrowdDetector(
-        model_path="yolov8l.pt",
+        model_path="yolov8n.pt",
         confidence=0.20,
         iou_threshold=db_iou,
-        img_size=1280,
+        img_size=640,
     )
 
 density_estimator = DensityEstimator(low_threshold=db_low_dens, high_threshold=db_high_dens)

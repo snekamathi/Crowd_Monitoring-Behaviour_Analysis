@@ -16,7 +16,7 @@ class CrowdDetector:
 
     def __init__(
         self,
-        model_path: str = "yolov8m.pt",
+        model_path: str = "yolov8n.pt",
         confidence: float = 0.25,
         iou_threshold: float = 0.45,
         img_size: int = 640,
