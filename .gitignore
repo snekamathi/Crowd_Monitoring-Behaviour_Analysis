@@ -1,8 +1,42 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
 
-backend/yolov8x.pt
-backend/static/uploads/*.mp4
+# build output
+.next/
+out/
+build/
+dist/
+__pycache__/
 
+# Large models and data
 *.pt
 *.mp4
+*.webm
+*.avi
+*.mov
+*.zip
+*.tar.gz
+*.dll
+*.pyd
+
+# logs
+*.log
+backend_output.log
+
+# env
+.env*
+
 node_modules/
-.venv/
+.next/
+*.pt
+*.mp4
+*.webm
+*.dll
+*.pyd
+*.pack
+*.log
+.env*
+

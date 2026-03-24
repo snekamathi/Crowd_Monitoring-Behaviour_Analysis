@@ -1,52 +1,36 @@
-<<<<<<< HEAD
-# AI-Based Crowd Monitoring and Disaster Alert System
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is a complete web application utilizing Deep Learning (YOLOv8 & LSTM via CCNet/CBNet architecture) to monitor surveillance footage for crowd counting, density estimation, and high-risk behavior analysis. 
+## Getting Started
 
-## Project Architecture
-- **Frontend**: Next.js (React) + Tailwind CSS + Recharts + Framer Motion
-- **Backend**: Python 3.9+ Flask API
-- **Models**: Architecture placeholders for YOLOv8 (Crowd Detection) and LSTM (Behavior Analysis)
-- **Database**: SQLite/MySQL via SQLAlchemy
+First, run the development server:
 
-## Prerequisites
-- Node.js (v18+)
-- Python (3.9+)
-
-## How to Run
-
-### 1. Start the Frontend
-Open a new terminal, navigate into the `<project_root>/crowd_monitoring` directory:
 ```bash
-cd crowd_monitoring
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
-The stunning UI Dashboard will stream live at `http://localhost:3000`.
 
-### 2. Start the Backend API
-Open another terminal, navigate to `<project_root>/backend`:
-```bash
-cd backend
-python -m venv venv
-# Activate virtual environment
-# On Windows: .\venv\Scripts\activate
-# On Mac/Linux: source venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
-This will initialize the AI pipeline and start streaming processed frames at `http://localhost:5000/api/video_feed`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Application Features
-- **Live Surveillance Pipeline**: Fetches webcam/RTSP feeds & draws simulated YOLOv8 bonding boxes in realtime.
-- **AI Analytics Engine**:
-  - `detection.py`: Simulates YOLOv8 predicting person coordinates.
-  - `density.py`: Categorizes crowd levels.
-  - `behavior.py`: Simulates LSTM CBNet predictions against sequences for abnormal behavior.
-  - `risk.py`: Provides actionable Warning/Critical assessments.
-- **Alert History Database**: Persistent logs stored in SQLite/MySQL.
-- **End User Platform**: Premium dark-mode UI with admin access, historical charts tracking, footage uploading, and live real-time visual statuses.
-=======
-# Crowd_Monitoring-Behaviour_Analysis
-AI-based crowd monitoring system using YOLOv8 and LSTM to detect people, estimate density, analyze behavior, and generate real-time emergency alerts. Helps improve public safety by identifying overcrowding and abnormal situations early.
->>>>>>> 9a81729d3b2f470d74944cd08ef8db4df6c3da5b
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
