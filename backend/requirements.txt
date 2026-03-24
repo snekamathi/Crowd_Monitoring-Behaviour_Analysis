@@ -13,3 +13,4 @@ filterpy>=1.4.5
 flask-jwt-extended>=4.6.0
 flask-bcrypt>=1.0.1
 requests
+gunicorn
