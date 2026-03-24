@@ -15,7 +15,7 @@ data.append(f'--{boundary}--'.encode('utf-8'))
 data.append(b'')
 
 body = b'\r\n'.join(data)
-req = urllib.request.Request('http://localhost:5000/api/upload', data=body, headers=headers)
+req = urllib.request.Request('https://crowd-monitoring-alerts.onrender.com/api/upload', data=body, headers=headers)
 try:
     r = urllib.request.urlopen(req)
     print(r.read())

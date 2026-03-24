@@ -2,7 +2,7 @@ import requests
 import time
 
 def test_video_feed():
-    login_url = "http://localhost:5000/api/login"
+    login_url = "https://crowd-monitoring-alerts.onrender.com/api/login"
     login_data = {"email": "admin@crowdsense.ai", "password": "Admin@CS2024!"}
     
     print("Attempting login...")
@@ -16,13 +16,13 @@ def test_video_feed():
     
     # Toggle camera ON
     print("Toggling camera ON...")
-    r = requests.post("http://localhost:5000/api/camera/toggle", 
+    r = requests.post("https://crowd-monitoring-alerts.onrender.com/api/camera/toggle", 
                       headers={"Authorization": f"Bearer {token}"},
                       json={"active": True})
     print(f"Toggle response: {r.text}")
     
     # Hit video feed
-    feed_url = f"http://localhost:5000/api/video_feed?token={token}"
+    feed_url = f"https://crowd-monitoring-alerts.onrender.com/api/video_feed?token={token}"
     print(f"Hitting video feed: {feed_url}")
     
     # Stream for a few seconds

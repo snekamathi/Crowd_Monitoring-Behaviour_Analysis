@@ -81,7 +81,7 @@ export default function Dashboard() {
     const handleAction = async (id: string, action: string) => {
         try {
             // Requirement 3 & 6: Sync status with Central Backend
-            const res = await fetch(`https://crowd-monitoring-behaviour-analysis.onrender.com/api/alerts/${id}`, {
+            const res = await fetch(`https://crowd-monitoring-alerts.onrender.com/api/alerts/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: action })
@@ -293,7 +293,7 @@ export default function Dashboard() {
         const fetchCentralAlerts = async () => {
             if (localStorage.getItem('role') !== 'Authority') return;
             try {
-                const res = await fetch("https://crowd-monitoring-behaviour-analysis.onrender.com/api/alerts");
+                const res = await fetch("https://crowd-monitoring-alerts.onrender.com/api/alerts");
                 if (res.ok) {
                     const alertsData = await res.json();
                     console.info(`[SYSTEM-SYNC] ${new Date().toLocaleTimeString()} • Polled ${alertsData.length} alerts.`); 

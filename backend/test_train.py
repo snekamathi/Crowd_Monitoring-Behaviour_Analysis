@@ -2,9 +2,9 @@ import requests
 import json
 import time
 
-login_url = "http://localhost:5001/api/login"
-train_url = "http://localhost:5001/api/dataset/train"
-status_url = "http://localhost:5001/api/dataset/train/status"
+login_url = "https://crowd-monitoring-behaviour-analysis.onrender.com/api/login"
+train_url = "https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/train"
+status_url = "https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/train/status"
 
 payload = {"email": "admin@crowdsense.ai", "password": "Admin@CS2024!"}
 

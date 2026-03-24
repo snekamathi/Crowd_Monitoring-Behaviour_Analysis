@@ -1,8 +1,8 @@
 import requests
 import time
 
-login_url = "http://localhost:5001/api/login"
-status_url = "http://localhost:5001/api/dataset/train/status"
+login_url = "https://crowd-monitoring-behaviour-analysis.onrender.com/api/login"
+status_url = "https://crowd-monitoring-behaviour-analysis.onrender.com/api/dataset/train/status"
 
 payload = {"email": "admin@crowdsense.ai", "password": "Admin@CS2024!"}
 
