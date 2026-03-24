@@ -1,0 +1,31 @@
+﻿Database initialized successfully.
+Initialization: YOLOv8n tracking mode active [conf=0.15, iou=0.15]
+Initialization: Density estimation loaded [low<1, high>2]
+Initialization: LSTM model not found ΓÇö using optical-flow rule-based behavior analysis (still accurate).
+Initialization: Risk evaluation matrix loaded with 20 FPS persistence.
+Initialization: Alert generation endpoints loaded.
+[DATASET] Verified folder: dataset\images\train
+[DATASET] Verified folder: dataset\images\val
+[DATASET] Verified folder: dataset\labels\train
+[DATASET] Verified folder: dataset\labels\val
+[DATASET] data.yaml created at dataset\data.yaml
+
+Starting CrowdSense AI Backend Pipeline...
+  ΓÇó YOLOv8 Detection  ΓåÆ ByteTrack Tracking
+  ΓÇó Optical Flow      ΓåÆ LSTM Behavior Analysis
+  ΓÇó Multi-Factor Risk ΓåÆ Alert System
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+.\venv\Scripts\python.exe : WARNING: This is a development server. Do not use it in a production deployment. Use a 
+production WSGI server instead.
+At line:1 char:1
++ .\venv\Scripts\python.exe app.py > v17.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: This i...server instead.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.8:5000
+Press CTRL+C to quit

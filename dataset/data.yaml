@@ -1,0 +1,5 @@
+path: C:/Users/SNEKA/Documents/Crowd_Monitoring/dataset
+train: images/train
+val: images/train
+names:
+  0: person

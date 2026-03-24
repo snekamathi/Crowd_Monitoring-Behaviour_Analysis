@@ -1,0 +1,50 @@
+﻿10:06:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:33] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:34] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:38] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:38] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:38] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:42] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:43] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:44] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:48] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:06:49] "GET /api/history 
+HTTP/1.1" 403 -

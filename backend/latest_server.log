@@ -1,0 +1,20 @@
+﻿09:17:40] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:40] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:40] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:40] "GET /api/stats 
+HTTP/1.1" 422 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:40] "GET /api/history 
+HTTP/1.1" 422 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:40] "GET /api/stats 
+HTTP/1.1" 422 -
+127.0.0.1 - - [02/Mar/2026 
+09:17:41] "GET /api/history 
+HTTP/1.1" 422 -

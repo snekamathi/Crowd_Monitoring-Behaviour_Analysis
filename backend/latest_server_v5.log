@@ -1,0 +1,2974 @@
+﻿Database initialized successfully.
+Initialization: YOLOv8l model loaded (yolov8l.pt) [conf=0.25, iou=0.45]
+Initialization: Density estimation loaded [low<50, high>150]
+Initialization: LSTM model not found ΓÇö using optical-flow rule-based behavior analysis (still accurate).
+Initialization: Risk evaluation matrix loaded.
+Initialization: Alert generation endpoints loaded.
+
+Starting CrowdSense AI Backend Pipeline...
+  ΓÇó YOLOv8 Detection  ΓåÆ ByteTrack Tracking
+  ΓÇó Optical Flow      ΓåÆ LSTM Behavior Analysis
+  ΓÇó Multi-Factor Risk ΓåÆ Alert System
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+python : WARNING: This is a 
+development server. Do not 
+use it in a production 
+deployment. Use a production 
+WSGI server instead.
+At line:1 char:29
++ taskkill /F /IM 
+python.exe; python app.py > 
+server_v4.log 2>&1
++                            
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (WARNING  
+  : This i...server instea   
+ d.:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+ * Running on all addresses 
+(0.0.0.0)
+ * Running on 
+http://127.0.0.1:5000
+ * Running on 
+http://192.168.252.138:5000
+Press CTRL+C to quit
+
+[LOGIN DEBUG] Attempting login for: 'admin@crowdsense.ai'
+[LOGIN DEBUG] Success for 'admin@crowdsense.ai'.
+127.0.0.1 - - [02/Mar/2026 
+09:39:32] "POST /api/login 
+HTTP/1.1" 200 -
+
+[LOGIN DEBUG] Attempting login for: 'admin@crowdsense.ai'
+[LOGIN DEBUG] Success for 'admin@crowdsense.ai'.
+127.0.0.1 - - [02/Mar/2026 
+09:40:14] "POST /api/login 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:40:14] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:40:37] "POST /api/login 
+HTTP/1.1" 400 -
+
+[LOGIN DEBUG] Attempting login for: 'admin@crowdsense.ai'
+[LOGIN DEBUG] Success for 'admin@crowdsense.ai'.
+127.0.0.1 - - [02/Mar/2026 
+09:40:54] "POST /api/login 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:56] "OPTIONS 
+/api/login HTTP/1.1" 200 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gmail.com'
+[LOGIN DEBUG] Success for 'snekamathi2004@gmail.com'.
+127.0.0.1 - - [02/Mar/2026 
+09:42:56] "POST /api/login 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:42:59] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:04] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:05] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:43:07] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNDc3Ni
+wianRpIjoiYjI2MzI3YjUtMWVjNC0
+0ODZlLWExNDItNGY0ZWRiODEzYjhj
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNDc
+3NiwiY3NyZiI6IjBhNDRjZmE3LTJm
+NWEtNDY0MC04MmY5LTU1M2ExMGVhN
+zdiOSIsImV4cCI6MTc3MjQyNTY3Nn
+0.deCbqDWJAYr2DY9Q3F8zIxG1yhC
+AGYk7Nz-dJKFqjbE HTTP/1.1" 
+200 -
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+WARNING not enough matching points
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+09:43:30] "OPTIONS 
+/api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:21] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:24] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:24] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:26] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:29] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:29] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:44] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:45] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:44:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:16] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:18] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:21] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:22] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:26] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:26] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:28] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:30] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:31] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:34] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:34] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:36] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:36] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:40] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:41] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:42] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:46] "POST /api/upload 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:46] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:46] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:46] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:49] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:51] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:52] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:53] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:57] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:57] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:58] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:45:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:01] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:04] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:06] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:07] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:10] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:12] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:12] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:14] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:16] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:17] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:22] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:23] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:27] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:27] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:28] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:32] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:35] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:37] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:41] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:42] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:46] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:46] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:47] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:52] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:56] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:56] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:58] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:46:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:01] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:04] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:04] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:06] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:06] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:09] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:09] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:11] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:14] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:14] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:17] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:19] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:24] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:25] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:25] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:32] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:32] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:32] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:35] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:38] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:40] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:40] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:44] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:46] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:46] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:50] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:50] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:55] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:55] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:56] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:47:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:00] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:00] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:02] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:04] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:04] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:08] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:10] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:10] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:10] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:14] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:14] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:14] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:19] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:19] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:19] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:25] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:25] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:25] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:30] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:30] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:32] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:36] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:36] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:38] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:40] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:44] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:44] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:45] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:47] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:49] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:49] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:49] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:54] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:54] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:55] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:48:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:00] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:00] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:01] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:04] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:06] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:06] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:07] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:09] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:13] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:14] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:14] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:18] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:19] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:20] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:20] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:38] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:38] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:38] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:44] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:44] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:45] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:47] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:49] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:49] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:51] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:54] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:55] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:57] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:49:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:00] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:03] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:04] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:04] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:04] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:09] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:09] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:14] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:15] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:19] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:21] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:24] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:24] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:28] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:29] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:29] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:33] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:34] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:35] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:39] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:42] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:44] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:45] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:46] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:50] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:50:50] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:51:50] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:51:50] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:51:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:51:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:52:51] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:52:51] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:52:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:52:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:03] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:03] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:03] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:04] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:13] "OPTIONS 
+/api/upload HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:42] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:43] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:45] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNDc3Ni
+wianRpIjoiYjI2MzI3YjUtMWVjNC0
+0ODZlLWExNDItNGY0ZWRiODEzYjhj
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNDc
+3NiwiY3NyZiI6IjBhNDRjZmE3LTJm
+NWEtNDY0MC04MmY5LTU1M2ExMGVhN
+zdiOSIsImV4cCI6MTc3MjQyNTY3Nn
+0.deCbqDWJAYr2DY9Q3F8zIxG1yhC
+AGYk7Nz-dJKFqjbE HTTP/1.1" 
+200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:47] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:47] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:47] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:49] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:49] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:52] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:55] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:57] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:57] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:53:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:01] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:02] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:07] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:07] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:07] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:12] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:13] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:17] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:17] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:19] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:23] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:23] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:26] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:27] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:29] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:31] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:33] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:33] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:37] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:42] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:43] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:43] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:48] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:48] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:50] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:53] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:55] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:58] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:54:58] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:01] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:02] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:07] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:07] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:07] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:12] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:13] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:14] "POST /api/upload 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:17] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:17] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:19] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:22] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:25] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:25] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:27] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:27] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:29] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:31] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:32] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:37] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:37] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:42] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:43] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:47] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:47] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:47] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:49] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:49] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:52] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:52] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:55] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:57] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:55:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:01] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:02] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:02] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:07] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:07] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:07] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:09] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:12] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:12] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:13] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:13] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:17] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:17] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:19] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:19] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:22] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:22] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:25] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:25] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:27] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:27] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:29] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:31] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:32] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:37] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:37] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:42] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:48] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:53] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:56:53] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:09] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:10] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:12] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:13] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:14] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:14] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:18] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:18] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:19] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:20] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:21] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:24] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:26] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:28] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:28] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:31] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:31] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:33] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:33] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:35] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:36] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:36] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:37] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNDc3Ni
+wianRpIjoiYjI2MzI3YjUtMWVjNC0
+0ODZlLWExNDItNGY0ZWRiODEzYjhj
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNDc
+3NiwiY3NyZiI6IjBhNDRjZmE3LTJm
+NWEtNDY0MC04MmY5LTU1M2ExMGVhN
+zdiOSIsImV4cCI6MTc3MjQyNTY3Nn
+0.deCbqDWJAYr2DY9Q3F8zIxG1yhC
+AGYk7Nz-dJKFqjbE HTTP/1.1" 
+200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:39] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:39] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:41] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:43] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:45] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:45] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:46] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:52] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNDc3Ni
+wianRpIjoiYjI2MzI3YjUtMWVjNC0
+0ODZlLWExNDItNGY0ZWRiODEzYjhj
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNDc
+3NiwiY3NyZiI6IjBhNDRjZmE3LTJm
+NWEtNDY0MC04MmY5LTU1M2ExMGVhN
+zdiOSIsImV4cCI6MTc3MjQyNTY3Nn
+0.deCbqDWJAYr2DY9Q3F8zIxG1yhC
+AGYk7Nz-dJKFqjbE HTTP/1.1" 
+200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:52] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:56] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:56] "GET /api/stats 
+HTTP/1.1" 401 -
+127.0.0.1 - - [02/Mar/2026 
+09:57:56] "GET /api/history 
+HTTP/1.1" 401 -
+127.0.0.1 - - [02/Mar/2026 
+09:58:55] "OPTIONS 
+/api/login HTTP/1.1" 200 -
+[UPLOAD] File saved: C:\Users\SNEKA\Documents\Crowd_Monitoring\backend\static\uploads\1772424810_Real-Time_Crowd_Monitoring_with_OpenCV.mp4
+[UPLOAD] Done: count=9, density=Low, behavior=Abnormal, risk=Warning (score=36.4)
+[UPLOAD] File saved: C:\Users\SNEKA\Documents\Crowd_Monitoring\backend\static\uploads\1772425393_Real-Time_Crowd_Monitoring_with_OpenCV.mp4
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+[UPLOAD] Done: count=7, density=Low, behavior=Abnormal, risk=Normal (score=33.9)
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+[JWT] Token expired: {'fresh': False, 'iat': 1772424776, 'jti': 'b26327b5-1ec4-486e-a142-4f4edb813b8c', 'type': 'access', 'sub': 'snekamathi2004@gmail.com', 'nbf': 1772424776, 'csrf': '0a44cfa7-2f5a-4640-82f9-553a10ea77b9', 'exp': 1772425676}
+[JWT] Token expired: {'fresh': False, 'iat': 1772424776, 'jti': 'b26327b5-1ec4-486e-a142-4f4edb813b8c', 'type': 'access', 'sub': 'snekamathi2004@gmail.com', 'nbf': 1772424776, 'csrf': '0a44cfa7-2f5a-4640-82f9-553a10ea77b9', 'exp': 1772425676}
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:58:55] "POST /api/login 
+HTTP/1.1" 401 -
+127.0.0.1 - - [02/Mar/2026 
+09:59:01] "OPTIONS 
+/api/login HTTP/1.1" 200 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:01] "POST /api/login 
+HTTP/1.1" 401 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:02] "POST /api/login 
+HTTP/1.1" 401 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:03] "POST /api/login 
+HTTP/1.1" 401 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:03] "POST /api/login 
+HTTP/1.1" 401 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:06] "POST /api/login 
+HTTP/1.1" 401 -
+127.0.0.1 - - [02/Mar/2026 
+09:59:06] "OPTIONS 
+/api/login HTTP/1.1" 200 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gamil.com'
+[LOGIN DEBUG] User 'snekamathi2004@gamil.com' not found.
+127.0.0.1 - - [02/Mar/2026 
+09:59:06] "POST /api/login 
+HTTP/1.1" 401 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:10] "OPTIONS 
+/api/register HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:10] "POST 
+/api/register HTTP/1.1" 400 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:54] "OPTIONS 
+/api/login HTTP/1.1" 200 -
+
+[LOGIN DEBUG] Attempting login for: 'snekamathi2004@gmail.com'
+[LOGIN DEBUG] Success for 'snekamathi2004@gmail.com'.
+127.0.0.1 - - [02/Mar/2026 
+10:00:54] "POST /api/login 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:56] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:00:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:01] "GET /api/history 
+HTTP/1.1" 403 -
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:02] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:02] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNTg1NC
+wianRpIjoiMDU4ODM0OWQtODYzMi0
+0NDZkLTgxOGMtYTBmZGQ0OWM0Yzlk
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNTg
+1NCwiY3NyZiI6ImYzOTMwZTcxLTNm
+M2YtNDVkMy1hYzVmLTQwM2MwM2MzN
+WJkOSIsImV4cCI6MTc3MjQyNjc1NH
+0.tOVhUYE4Iv_3UTV0zaHKwM7gVtb
+dNjS_mbkDsnkgWlc HTTP/1.1" 
+200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:16] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:18] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:21] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:22] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:26] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:26] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:28] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:28] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:30] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:32] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:32] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:32] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:34] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:34] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:37] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:37] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:39] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:40] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:41] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:41] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:41] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:42] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:46] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:46] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:47] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:50] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:52] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:52] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:53] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:53] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:55] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:57] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:57] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:57] "GET /api/history 
+HTTP/1.1" 403 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:01:58] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:01:59] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:01] "GET /api/history 
+HTTP/1.1" 403 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:03] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:04] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:04] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:06] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:07] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:08] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:10] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:11] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:12] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:12] "GET /api/history 
+HTTP/1.1" 403 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:12] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:14] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:16] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:17] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:18] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:23] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:23] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:23] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:24] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:27] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:27] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:29] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:29] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:31] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:36] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:36] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:36] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:36] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:40] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:40] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:42] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:42] "GET /api/stats 
+HTTP/1.1" 200 -
+
+[STREAM] generate_frames requested
+[STREAM] Camera opened: True
+[STREAM] Entering continuous loop...
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:45] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:45] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:48] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:48] "GET /api/stats 
+HTTP/1.1" 200 -
+WARNING not enough matching points
+127.0.0.1 - - [02/Mar/2026 
+10:02:48] "GET /api/video_fee
+d?token=eyJhbGciOiJIUzI1NiIsI
+nR5cCI6IkpXVCJ9.eyJmcmVzaCI6Z
+mFsc2UsImlhdCI6MTc3MjQyNTg1NC
+wianRpIjoiMDU4ODM0OWQtODYzMi0
+0NDZkLTgxOGMtYTBmZGQ0OWM0Yzlk
+IiwidHlwZSI6ImFjY2VzcyIsInN1Y
+iI6InNuZWthbWF0aGkyMDA0QGdtYW
+lsLmNvbSIsIm5iZiI6MTc3MjQyNTg
+1NCwiY3NyZiI6ImYzOTMwZTcxLTNm
+M2YtNDVkMy1hYzVmLTQwM2MwM2MzN
+WJkOSIsImV4cCI6MTc3MjQyNjc1NH
+0.tOVhUYE4Iv_3UTV0zaHKwM7gVtb
+dNjS_mbkDsnkgWlc HTTP/1.1" 
+200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:50] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:54] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:55] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:55] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:02:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:00] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:00] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:01] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:01] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:05] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:05] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:06] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:10] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:10] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:11] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:12] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:12] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:14] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:15] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:18] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:18] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:20] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:21] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:22] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:24] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:25] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:30] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:30] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:31] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:31] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:34] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:35] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:36] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:40] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:41] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:42] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:42] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:44] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:45] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:46] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:48] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:48] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:51] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:51] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:51] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:54] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:55] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:03:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:28] "OPTIONS 
+/api/camera/status HTTP/1.1" 
+404 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:28] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:28] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:28] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:30] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:33] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:34] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:34] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:34] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:40] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:43] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:43] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:49] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:50] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:50] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:52] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:53] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:53] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:54] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:55] "OPTIONS 
+/api/camera/toggle HTTP/1.1" 
+404 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:56] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:56] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:58] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:04:58] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:00] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:02] "OPTIONS 
+/api/camera/toggle HTTP/1.1" 
+404 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:02] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:02] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:03] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:03] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:04] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:06] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:08] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:08] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:08] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:10] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:12] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:13] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:13] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:14] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:15] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:16] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:18] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:18] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:20] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:20] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:23] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:23] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:23] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:24] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:26] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:26] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:28] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:28] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:30] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:32] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:32] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:33] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:33] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:34] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:36] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:38] "OPTIONS 
+/api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:38] "OPTIONS 
+/api/history HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:38] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:39] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:40] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:42] "GET /api/stats 
+HTTP/1.1" 200 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:43] "GET /api/history 
+HTTP/1.1" 403 -
+127.0.0.1 - - [02/Mar/2026 
+10:05:44] "OPTIONS 
+/api/camera/toggle HTTP/1.1" 
+404 -

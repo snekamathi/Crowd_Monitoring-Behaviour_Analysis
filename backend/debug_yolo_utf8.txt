@@ -1,0 +1,9 @@
+﻿Opening video: test_vid.mp4
+Initialization: YOLOv8n tracking mode active [conf=0.2, iou=0.45]
+
+0: 640x384 3 persons, 142.0ms
+Speed: 3.0ms preprocess, 142.0ms inference, 5.2ms postprocess per image at shape (1, 3, 640, 384)
+Total detections (no heuristic): 3
+  Det 0: box=[323, 590, 412, 792], w=88, h=201, conf=0.82
+  Det 1: box=[127, 466, 149, 527], w=22, h=60, conf=0.47
+  Det 2: box=[103, 478, 123, 530], w=20, h=51, conf=0.43

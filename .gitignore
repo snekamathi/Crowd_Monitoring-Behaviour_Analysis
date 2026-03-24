@@ -1,0 +1,8 @@
+
+backend/yolov8x.pt
+backend/static/uploads/*.mp4
+
+*.pt
+*.mp4
+node_modules/
+.venv/
