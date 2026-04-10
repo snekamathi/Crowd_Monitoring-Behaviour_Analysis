@@ -33,12 +33,11 @@ jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 
 # Permissive CORS for UI interaction (allowing localhost and wildcard for unblocking)
-CORS(app, resources={r"/api/*": {
-    "origins": "*",
-    "allow_headers": ["Authorization", "Content-Type", "token"],
-    "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    "supports_credentials": False
-}})
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.before_request
+def log_request_info():
+    print(f"[API-DEBUG] {request.method} {request.url}")
 
 @jwt.invalid_token_loader
 def invalid_token_callback(error):
