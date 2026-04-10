@@ -57,7 +57,7 @@ export default function UploadPage() {
         }
 
         try {
-            const response = await fetch('http://localhost:5001/api/upload', {
+            const response = await fetch(''+API_BASE_URL+'/api/upload', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData,

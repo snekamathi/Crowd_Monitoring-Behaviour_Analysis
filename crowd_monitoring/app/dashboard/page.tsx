@@ -37,6 +37,7 @@ import {
     Bar
 } from "recharts";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
 
 export default function Dashboard() {
     const [role, setRole] = useState<string | null>(null);
@@ -81,7 +82,7 @@ export default function Dashboard() {
     const handleAction = async (id: string, action: string) => {
         try {
             // Requirement 3 & 6: Sync status with Central Backend
-            const res = await fetch(`http://localhost:5000/api/alerts/${id}`, {
+            const res = await fetch(`'+ALERTS_API_URL+'/api/alerts/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: action })
@@ -92,7 +93,7 @@ export default function Dashboard() {
                 if (action === 'Resolved') {
                     const token = localStorage.getItem("access_token");
                     const alertDetail = (incidents as any[]).find(i => i.id === id);
-                    await fetch('http://localhost:5001/api/emergency/action', {
+                    await fetch(''+API_BASE_URL+'/api/emergency/action', {
                         method: 'POST',
                         headers: { 
                             'Authorization': `Bearer ${token}`,
@@ -119,7 +120,7 @@ export default function Dashboard() {
     const handleSiren = async () => {
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch('http://localhost:5001/api/emergency/siren', {
+            const res = await fetch(''+API_BASE_URL+'/api/emergency/siren', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -144,7 +145,7 @@ export default function Dashboard() {
     const handleBroadcast = async () => {
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch('http://localhost:5001/api/emergency/broadcast', {
+            const res = await fetch(''+API_BASE_URL+'/api/emergency/broadcast', {
                 method: 'POST',
                 headers: { 
                     'Authorization': `Bearer ${token}`,
@@ -200,7 +201,7 @@ export default function Dashboard() {
             const token = localStorage.getItem("access_token");
             if (!token) return;
             try {
-                const res = await fetch('http://localhost:5001/api/camera/status', {
+            const res = await fetch(`${API_BASE_URL}/api/camera/status`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -220,7 +221,7 @@ export default function Dashboard() {
             }
 
             try {
-                const res = await fetch('http://localhost:5001/api/stats', {
+                const res = await fetch(`${API_BASE_URL}/api/stats`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 
@@ -270,7 +271,7 @@ export default function Dashboard() {
             if (!token || token === "null" || token === "undefined") return;
 
             try {
-                const res = await fetch('http://localhost:5001/api/history', {
+                const res = await fetch(`${API_BASE_URL}/api/history`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 
@@ -293,7 +294,7 @@ export default function Dashboard() {
         const fetchCentralAlerts = async () => {
             if (localStorage.getItem('role') !== 'Authority') return;
             try {
-                const res = await fetch("http://localhost:5000/api/alerts");
+                const res = await fetch(`${ALERTS_API_URL}/api/alerts`);
                 if (res.ok) {
                     const alertsData = await res.json();
                     console.info(`[SYSTEM-SYNC] ${new Date().toLocaleTimeString()} • Polled ${alertsData.length} alerts.`); 
@@ -326,7 +327,7 @@ export default function Dashboard() {
         if (!token) return;
 
         try {
-            const res = await fetch('http://localhost:5001/api/camera/toggle', {
+            const res = await fetch(''+API_BASE_URL+'/api/camera/toggle', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -355,7 +356,7 @@ export default function Dashboard() {
         setIsConnecting(true);
 
         try {
-            const res = await fetch('http://localhost:5001/api/camera/source', {
+            const res = await fetch(''+API_BASE_URL+'/api/camera/source', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -385,7 +386,7 @@ export default function Dashboard() {
         if (source === "webcam") {
             const token = localStorage.getItem("access_token");
             try {
-                await fetch('http://localhost:5001/api/camera/source', {
+                await fetch(''+API_BASE_URL+'/api/camera/source', {
                     method: 'POST',
                     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
                     body: JSON.stringify({ source: "webcam" })
@@ -698,7 +699,7 @@ export default function Dashboard() {
                         {isCameraOn ? (
                             <img
                                 key={streamKey}
-                                src={`http://localhost:5001/api/video_feed?token=${localStorage.getItem('access_token')}`}
+                                src={`${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}`}
                                 alt="Detection Feed"
                                 className="w-full h-full object-contain mix-blend-multiply"
                                 onError={() => setTimeout(() => setStreamKey(k => k + 1), 2000)}

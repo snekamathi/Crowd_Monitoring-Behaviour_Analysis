@@ -28,7 +28,7 @@ export default function UsersPage() {
         try {
             setLoading(true);
             const token = localStorage.getItem("access_token");
-            const res = await fetch("http://localhost:5001/api/users", {
+            const res = await fetch("'+API_BASE_URL+'/api/users", {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
@@ -66,7 +66,7 @@ export default function UsersPage() {
         setError("");
 
         const token = localStorage.getItem("access_token");
-        const url = editingUser ? `http://localhost:5001/api/users/${editingUser.id}` : "http://localhost:5001/api/users";
+        const url = editingUser ? `'+API_BASE_URL+'/api/users/${editingUser.id}` : "'+API_BASE_URL+'/api/users";
         const method = editingUser ? "PUT" : "POST";
 
         try {
@@ -98,7 +98,7 @@ export default function UsersPage() {
         setShowDeleteConfirm(null);
         try {
             const token = localStorage.getItem("access_token");
-            const res = await fetch(`http://localhost:5001/api/users/${id}`, {
+            const res = await fetch(`'+API_BASE_URL+'/api/users/${id}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${token}` }
             });
