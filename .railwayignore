@@ -1,0 +1,9 @@
+# Ignore frontend and datasets to speed up backend builds
+crowd_monitoring/
+backend_node/
+dataset/
+node_modules/
+.next/
+*.log
+*.pt
+*.db
