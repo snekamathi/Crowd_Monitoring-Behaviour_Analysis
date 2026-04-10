@@ -9,8 +9,9 @@ class AlertSystem:
         self.sms_phone = sms_phone
         self.report_email = report_email
         
-        # Node.js Alert Microservice URL (Requirement 9)
-        self.node_api_base = "http://localhost:5000/api"
+        # Node.js Alert Microservice URL (Default to local, override with ENV)
+        import os
+        self.node_api_base = os.getenv("NODE_API_URL", "http://localhost:5000/api")
         
         # Requirement 5 & 6: Trigger-Reset Logic
         self.is_alert_sent = False
