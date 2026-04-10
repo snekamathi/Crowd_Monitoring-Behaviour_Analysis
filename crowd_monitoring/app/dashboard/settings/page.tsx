@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Settings, Shield, Bell, Cpu, Save, RefreshCw } from "lucide-react";
+import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
 
 export default function SettingsPage() {
     const [config, setConfig] = useState({
@@ -32,7 +33,7 @@ export default function SettingsPage() {
         const fetchSettings = async () => {
             try {
                 const token = localStorage.getItem("access_token");
-                const res = await fetch("'+API_BASE_URL+'/api/settings", {
+                const res = await fetch(`${API_BASE_URL}/api/settings`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (res.ok) {
@@ -57,7 +58,7 @@ export default function SettingsPage() {
 
         try {
             const token = localStorage.getItem("access_token");
-            const res = await fetch("'+API_BASE_URL+'/api/settings", {
+            const res = await fetch(`${API_BASE_URL}/api/settings`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -91,7 +92,7 @@ export default function SettingsPage() {
     const handleTestAlert = async (type: 'sms' | 'email') => {
         try {
             // Requirement 9: Node Backend runs on 5000. Python API moved to 5001.
-            const url = `'+ALERTS_API_URL+'/api/send-${type}`;
+            const url = `${ALERTS_API_URL}/api/send-${type}`;
             const timestamp = new Date().toLocaleString();
             
             const payload = type === 'sms' 

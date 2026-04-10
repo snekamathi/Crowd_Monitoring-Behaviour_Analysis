@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import { UploadCloud, FileVideo, CheckCircle, Cpu, Loader2, PlaySquare, AlertCircle, RefreshCcw, Users, Activity, ShieldAlert, BarChart3 } from "lucide-react";
+import { API_BASE_URL } from "@/app/config";
 
 interface AnalysisResult {
     processed_video_url: string;
@@ -57,7 +58,7 @@ export default function UploadPage() {
         }
 
         try {
-            const response = await fetch(''+API_BASE_URL+'/api/upload', {
+            const response = await fetch(`${API_BASE_URL}/api/upload`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData,

@@ -16,6 +16,7 @@ import {
     X
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_BASE_URL } from "@/app/config";
 
 const menuItems = [
     { label: "Overview Dashboard", icon: LayoutDashboard, path: "/dashboard", roles: ["Admin", "Operator", "Authority"] },
@@ -57,7 +58,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         // Global Alert Listener for Authority & Notifications for all
         const checkAlerts = async () => {
             try {
-                const res = await fetch(''+API_BASE_URL+'/api/stats', {
+                const res = await fetch(`${API_BASE_URL}/api/stats`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {

@@ -18,6 +18,7 @@ import {
     Plus
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_BASE_URL } from "@/app/config";
 
 export default function DatasetPage() {
     const [stats, setStats] = useState<any>(null);
@@ -34,8 +35,8 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         try {
             const [statsRes, validRes] = await Promise.all([
-                fetch(''+API_BASE_URL+'/api/dataset/stats', { headers: { 'Authorization': `Bearer ${token}` } }),
-                fetch(''+API_BASE_URL+'/api/dataset/validate', { headers: { 'Authorization': `Bearer ${token}` } })
+                fetch(`${API_BASE_URL}/api/dataset/stats`, { headers: { 'Authorization': `Bearer ${token}` } }),
+                fetch(`${API_BASE_URL}/api/dataset/validate`, { headers: { 'Authorization': `Bearer ${token}` } })
             ]);
             
             if (statsRes.ok && validRes.ok) {
@@ -55,7 +56,7 @@ export default function DatasetPage() {
         const pollStatus = setInterval(async () => {
             const token = localStorage.getItem("access_token");
             try {
-                const res = await fetch(''+API_BASE_URL+'/api/dataset/train/status', {
+                const res = await fetch(`${API_BASE_URL}/api/dataset/train/status`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) setTrainStatus(await res.json());
@@ -76,7 +77,7 @@ export default function DatasetPage() {
         formData.append("split", uploadSplit);
 
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/upload', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/upload`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
@@ -103,7 +104,7 @@ export default function DatasetPage() {
         formData.append("video", video);
 
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/video-to-frames', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/video-to-frames`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
@@ -125,7 +126,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("sample");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/sample', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/sample`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -144,7 +145,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("cleanup");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/cleanup', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/cleanup`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -164,7 +165,7 @@ export default function DatasetPage() {
         if (!validation.valid || trainStatus.active) return;
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/train', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/train`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -183,7 +184,7 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         setActionLoading("deploy");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/dataset/deploy', {
+            const res = await fetch(`${API_BASE_URL}/api/dataset/deploy`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

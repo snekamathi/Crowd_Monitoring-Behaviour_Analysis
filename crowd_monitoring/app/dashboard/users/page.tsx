@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Users as UsersIcon, Plus, Edit2, Trash2, Mail, ShieldAlert, X, User as UserIcon, Eye, EyeOff } from "lucide-react";
+import { API_BASE_URL } from "@/app/config";
 
 interface User {
     id: number;
@@ -28,7 +29,7 @@ export default function UsersPage() {
         try {
             setLoading(true);
             const token = localStorage.getItem("access_token");
-            const res = await fetch("'+API_BASE_URL+'/api/users", {
+            const res = await fetch(`${API_BASE_URL}/api/users`, {
                 headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
@@ -66,7 +67,7 @@ export default function UsersPage() {
         setError("");
 
         const token = localStorage.getItem("access_token");
-        const url = editingUser ? `'+API_BASE_URL+'/api/users/${editingUser.id}` : "'+API_BASE_URL+'/api/users";
+        const url = editingUser ? `${API_BASE_URL}/api/users/${editingUser.id}` : `${API_BASE_URL}/api/users`;
         const method = editingUser ? "PUT" : "POST";
 
         try {
@@ -98,7 +99,7 @@ export default function UsersPage() {
         setShowDeleteConfirm(null);
         try {
             const token = localStorage.getItem("access_token");
-            const res = await fetch(`'+API_BASE_URL+'/api/users/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/users/${id}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${token}` }
             });
