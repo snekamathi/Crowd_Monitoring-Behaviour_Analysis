@@ -30,7 +30,7 @@ export default function UsersPage() {
             setLoading(true);
             const token = localStorage.getItem("access_token");
             const res = await fetch(`${API_BASE_URL}/api/users`, {
-                headers: { "Authorization": `Bearer ${token}` }
+                headers: { `Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 const data = await res.json();
@@ -100,7 +100,7 @@ export default function UsersPage() {
         try {
             const token = localStorage.getItem("access_token");
             const res = await fetch(`${API_BASE_URL}/api/users/${id}`, {
-                method: "DELETE",
+                method: `DELETE",
                 headers: { "Authorization": `Bearer ${token}` }
             });
 

@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Lock, ShieldAlert, CheckCircle, Eye, EyeOff } from "lucide-react";
@@ -45,8 +46,8 @@ function ResetPasswordForm() {
         setLoading(true);
 
         try {
-            const response = await fetch("'+API_BASE_URL+'/api/reset-password", {
-                method: "POST",
+            const response = await fetch(`${API_BASE_URL}/api/reset-password`, {
+                method: `POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token, password }),
             });

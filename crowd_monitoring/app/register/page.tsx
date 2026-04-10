@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Lock, User, Mail, ShieldAlert, Cpu, ArrowLeft, Eye, EyeOff, UserPlus, ChevronDown } from "lucide-react";
@@ -39,8 +40,8 @@ export default function Register() {
         setLoading(true);
 
         try {
-            const response = await fetch("'+API_BASE_URL+'/api/register", {
-                method: "POST",
+            const response = await fetch(`${API_BASE_URL}/api/register`, {
+                method: `POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ full_name: fullName, email, password, role }),
             });

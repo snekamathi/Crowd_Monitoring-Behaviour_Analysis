@@ -59,7 +59,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         const checkAlerts = async () => {
             try {
                 const res = await fetch(`${API_BASE_URL}/api/stats`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
+                    headers: { `Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const stats = await res.json();

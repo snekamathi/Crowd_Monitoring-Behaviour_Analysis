@@ -34,7 +34,7 @@ export default function SettingsPage() {
             try {
                 const token = localStorage.getItem("access_token");
                 const res = await fetch(`${API_BASE_URL}/api/settings`, {
-                    headers: { "Authorization": `Bearer ${token}` }
+                    headers: { `Authorization": `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const data = await res.json();
@@ -59,7 +59,7 @@ export default function SettingsPage() {
         try {
             const token = localStorage.getItem("access_token");
             const res = await fetch(`${API_BASE_URL}/api/settings`, {
-                method: "POST",
+                method: `POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`

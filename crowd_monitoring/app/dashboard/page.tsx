@@ -82,7 +82,7 @@ export default function Dashboard() {
     const handleAction = async (id: string, action: string) => {
         try {
             // Requirement 3 & 6: Sync status with Central Backend
-            const res = await fetch(`'+ALERTS_API_URL+'/api/alerts/${id}`, {
+            const res = await fetch(``api/alerts/${id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: action })
@@ -93,8 +93,8 @@ export default function Dashboard() {
                 if (action === 'Resolved') {
                     const token = localStorage.getItem("access_token");
                     const alertDetail = (incidents as any[]).find(i => i.id === id);
-                    await fetch(''+API_BASE_URL+'/api/emergency/action', {
-                        method: 'POST',
+                    await fetch(`${API_BASE_URL}/api/emergency/action`, {
+                        method: `POST',
                         headers: { 
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json' 
@@ -120,8 +120,8 @@ export default function Dashboard() {
     const handleSiren = async () => {
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/emergency/siren', {
-                method: 'POST',
+            const res = await fetch(`${API_BASE_URL}/api/emergency/siren`, {
+                method: `POST',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.ok) {
@@ -145,8 +145,8 @@ export default function Dashboard() {
     const handleBroadcast = async () => {
         const token = localStorage.getItem("access_token");
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/emergency/broadcast', {
-                method: 'POST',
+            const res = await fetch(`${API_BASE_URL}/api/emergency/broadcast`, {
+                method: `POST',
                 headers: { 
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -202,7 +202,7 @@ export default function Dashboard() {
             if (!token) return;
             try {
             const res = await fetch(`${API_BASE_URL}/api/camera/status`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
+                    headers: { `Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const data = await res.json();
@@ -222,7 +222,7 @@ export default function Dashboard() {
 
             try {
                 const res = await fetch(`${API_BASE_URL}/api/stats`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
+                    headers: { `Authorization': `Bearer ${token}` }
                 });
 
                 if (res.status === 401) {
@@ -272,7 +272,7 @@ export default function Dashboard() {
 
             try {
                 const res = await fetch(`${API_BASE_URL}/api/history`, {
-                    headers: { 'Authorization': `Bearer ${token}` }
+                    headers: { `Authorization': `Bearer ${token}` }
                 });
 
                 if (res.status === 401) {
@@ -302,7 +302,7 @@ export default function Dashboard() {
                     setLoading(false);
                 }
             } catch (err) {
-                console.debug("Central alerts polling offline");
+                console.debug(`Central alerts polling offline");
             }
         };
 
@@ -327,8 +327,8 @@ export default function Dashboard() {
         if (!token) return;
 
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/camera/toggle', {
-                method: 'POST',
+            const res = await fetch(`${API_BASE_URL}/api/camera/toggle`, {
+                method: `POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -356,8 +356,8 @@ export default function Dashboard() {
         setIsConnecting(true);
 
         try {
-            const res = await fetch(''+API_BASE_URL+'/api/camera/source', {
-                method: 'POST',
+            const res = await fetch(`${API_BASE_URL}/api/camera/source`, {
+                method: `POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -386,8 +386,8 @@ export default function Dashboard() {
         if (source === "webcam") {
             const token = localStorage.getItem("access_token");
             try {
-                await fetch(''+API_BASE_URL+'/api/camera/source', {
-                    method: 'POST',
+                await fetch(`${API_BASE_URL}/api/camera/source`, {
+                    method: `POST',
                     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
                     body: JSON.stringify({ source: "webcam" })
                 });

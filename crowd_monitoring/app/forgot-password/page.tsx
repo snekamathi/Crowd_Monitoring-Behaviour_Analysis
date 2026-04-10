@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
 import { useState } from "react";
 import { Mail, ShieldAlert, Cpu, ArrowLeft, CheckCircle, KeyRound, Eye, EyeOff, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,8 +24,8 @@ export default function ForgotPassword() {
         setError("");
         setLoading(true);
         try {
-            const response = await fetch("'+API_BASE_URL+'/api/forgot-password", {
-                method: "POST",
+            const response = await fetch(`${API_BASE_URL}/api/forgot-password`, {
+                method: `POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }),
             });
@@ -58,8 +59,8 @@ export default function ForgotPassword() {
         }
         setLoading(true);
         try {
-            const response = await fetch("'+API_BASE_URL+'/api/reset-password", {
-                method: "POST",
+            const response = await fetch(`${API_BASE_URL}/api/reset-password`, {
+                method: `POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token: resetToken, password: newPassword }),
             });

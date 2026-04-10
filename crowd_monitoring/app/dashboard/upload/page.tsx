@@ -59,7 +59,7 @@ export default function UploadPage() {
 
         try {
             const response = await fetch(`${API_BASE_URL}/api/upload`, {
-                method: 'POST',
+                method: `POST',
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData,
             });
