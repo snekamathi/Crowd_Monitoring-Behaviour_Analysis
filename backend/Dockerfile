@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Install system dependencies for OpenCV and YOLOv8
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
@@ -11,17 +11,15 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy requirements and install
+# Copy requirements and install (using --no-cache-dir to save space)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir gunicorn
 
 # Copy the rest of the application
 COPY . .
 
-# Environment variables
-ENV PORT=5001
+# Final cleanup of unnecessary files
+RUN rm -rf /root/.cache/pip
 
-# Command to run the application
-# We use 1 worker and multiple threads because YOLOv8/OpenCV are heavy on memory
+ENV PORT=5001
 CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "1", "--threads", "4", "--timeout", "0", "app:app"]
