@@ -53,8 +53,9 @@ export default function Register() {
             } else {
                 setError(data.error || "Registration failed");
             }
-        } catch (err) {
-            setError("Server connection failed");
+        } catch (err: any) {
+            console.error("Registration error:", err);
+            setError(`Server connection failed: ${err.message || 'Check network'}`);
         } finally {
             setLoading(false);
         }
