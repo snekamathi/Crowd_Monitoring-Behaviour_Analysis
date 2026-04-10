@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+backend_venv/
+working_venv/
+venv_works/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+backend_live.log
+production_output.log
+latest_server*.log
+server*.log
+
+# Databases
+*.db
+*.sqlite3
+
+# AI Models (Large files - exceeding 100MB)
+backend/*.pt
+*.pt
+yolov8*.pt
+
+# Uploads and Assets
+backend/static/uploads/
+crowd_monitoring/.next/
+
+# OS
+.DS_Store
+Thumbs.db
