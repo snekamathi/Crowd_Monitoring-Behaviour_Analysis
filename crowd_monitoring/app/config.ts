@@ -1,3 +1,5 @@
-import { API_BASE_URL, ALERTS_API_URL } from "@/app/config";
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "${API_BASE_URL}";
-export const ALERTS_API_URL = process.env.NEXT_PUBLIC_ALERTS_API_URL || "${ALERTS_API_URL}";
+// Backend AI Server (Railway)
+export const API_BASE_URL = "https://crowdmonitoring-behaviouranalysis-production-9f85.up.railway.app";
+
+// Notification/Alerts Server (Railway)
+export const ALERTS_API_URL = "https://crowdmonitoring-behaviouranalysis-production-34de.up.railway.app";
