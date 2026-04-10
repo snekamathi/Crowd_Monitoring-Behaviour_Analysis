@@ -1,47 +1,94 @@
-# AI-Based Crowd Monitoring and Disaster Alert System
+# CrowdSense AI: Crowd Monitoring & Behavior Analysis
 
-This is a complete web application utilizing Deep Learning (YOLOv8 & LSTM via CCNet/CBNet architecture) to monitor surveillance footage for crowd counting, density estimation, and high-risk behavior analysis. 
+CrowdSense AI is a state-of-the-art surveillance platform utilizing Deep Learning (YOLOv8 & Optical Flow) to monitor crowd density, count unique individuals, and detect abnormal behaviors (panic, running, loitering) in real-time.
 
-## Project Architecture
-- **Frontend**: Next.js (React) + Tailwind CSS + Recharts + Framer Motion
-- **Backend**: Python 3.9+ Flask API
-- **Models**: Architecture placeholders for YOLOv8 (Crowd Detection) and LSTM (Behavior Analysis)
-- **Database**: SQLite/MySQL via SQLAlchemy
+## 🚀 Getting Started
 
-## Prerequisites
-- Node.js (v18+)
-- Python (3.9+)
+To run this project locally from a fresh clone, follow these steps:
 
-## How to Run
+### 1. Prerequisites
+- **Node.js** (v18+)
+- **Python** (v3.9+)
+- **Git**
 
-### 1. Start the Frontend
-Open a new terminal, navigate into the `<project_root>/crowd_monitoring` directory:
-```bash
-cd crowd_monitoring
-npm install
-npm run dev
-```
-The stunning UI Dashboard will stream live at `http://localhost:3000`.
+---
 
-### 2. Start the Backend API
-Open another terminal, navigate to `<project_root>/backend`:
-```bash
-cd backend
-python -m venv venv
-# Activate virtual environment
-# On Windows: .\venv\Scripts\activate
-# On Mac/Linux: source venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
-This will initialize the AI pipeline and start streaming processed frames at `http://localhost:5000/api/video_feed`.
+### 2. Setup the AI Backend (Python)
+The AI backend handles real-time video processing and behavior classification.
 
-### Application Features
-- **Live Surveillance Pipeline**: Fetches webcam/RTSP feeds & draws simulated YOLOv8 bonding boxes in realtime.
-- **AI Analytics Engine**:
-  - `detection.py`: Simulates YOLOv8 predicting person coordinates.
-  - `density.py`: Categorizes crowd levels.
-  - `behavior.py`: Simulates LSTM CBNet predictions against sequences for abnormal behavior.
-  - `risk.py`: Provides actionable Warning/Critical assessments.
-- **Alert History Database**: Persistent logs stored in SQLite/MySQL.
-- **End User Platform**: Premium dark-mode UI with admin access, historical charts tracking, footage uploading, and live real-time visual statuses.
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Create and activate a Virtual Environment:
+   ```bash
+   python -m venv venv
+   # Windows:
+   .\venv\Scripts\activate
+   # Mac/Linux:
+   source venv/bin/activate
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Download AI Models**:
+   Since `.pt` files are excluded from Git, you need to provide the YOLOv8 weights:
+   - Place `yolov8n.pt` and `yolov8l.pt` inside the `/backend` folder.
+   - You can download them from the [Ultralytics GitHub](https://github.com/ultralytics/ultralytics).
+5. Start the server:
+   ```bash
+   python app.py
+   ```
+   *The AI pipeline will start on port **5001**.*
+
+---
+
+### 3. Setup the Notification Gateway (Node.js)
+This service manages SMS (via Twilio) and Email notifications.
+
+1. Navigate to the gateway directory:
+   ```bash
+   cd backend_node
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure environment:
+   - Create a `.env` file based on the provided credentials (Twilio SID, Auth Token, Email PASS).
+4. Start the gateway:
+   ```bash
+   node server.js
+   ```
+   *The gateway will start on port **5000**.*
+
+---
+
+### 4. Setup the Dashboard (Next.js)
+The premium UI provides real-time analytics and system control.
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd crowd_monitoring
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   *Open [http://localhost:3000](http://localhost:3000) to view the dashboard.*
+
+---
+
+## 🛠 Features
+- **Live AI HUD**: Real-time bounding boxes and HUD overlays.
+- **Behavior Detection**: Automatic alerts for "Rapid Motion" or "Panic" behaviors.
+- **Incident History**: Persistent logging of all detected alerts with CSV export.
+- **Scalable Pipeline**: Supports both local Webcams and RTSP/CCTV streams.
+
+## ⚖️ License
+Distributed under the ISC License. See `LICENSE` for more information.
