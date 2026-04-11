@@ -302,7 +302,7 @@ export default function Dashboard() {
                     setLoading(false);
                 }
             } catch (err) {
-                console.debug(`Central alerts polling offline");
+                console.debug("Central alerts polling offline");
             }
         };
 
