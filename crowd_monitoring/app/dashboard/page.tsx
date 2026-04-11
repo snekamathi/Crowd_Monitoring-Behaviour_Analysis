@@ -82,7 +82,7 @@ export default function Dashboard() {
     const handleAction = async (id: string, action: string) => {
         try {
             // Requirement 3 & 6: Sync status with Central Backend
-            const res = await fetch(``api/alerts/${id}`, {
+            const res = await fetch(`${ALERTS_API_URL}/api/alerts/${id}`, {
                 method: "PATCH",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: action })
