@@ -243,6 +243,12 @@ class AsyncCrowdProcessor:
         frame_idx = 0
         while self.running:
             success, frame = self.cap.read()
+            if not success:
+                # If it's a video file (Virtual Camera), loop back to the start
+                if self.source == 0 or isinstance(self.source, str):
+                    self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                    success, frame = self.cap.read()
+            
             if success and frame is not None:
                 frame_idx += 1
                 
