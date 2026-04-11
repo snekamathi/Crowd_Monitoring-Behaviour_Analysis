@@ -1157,7 +1157,7 @@ def upload_video():
     print(f"[API-UPLOAD] Analysis complete. Risk: {final_risk}, Score: {risk_score}")
     return jsonify({
         "success": True,
-        "processed_video_url": f"http://localhost:5001/static/uploads/{unique_filename}",
+        "processed_video_url": f"{request.host_url.rstrip('/')}/static/uploads/{unique_filename}",
         "people_count": max_count,
         "density_level": final_density,
         "behavior_status": final_behavior,
