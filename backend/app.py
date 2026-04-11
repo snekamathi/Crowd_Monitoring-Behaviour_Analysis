@@ -141,11 +141,8 @@ class AsyncCrowdProcessor:
     """ASYNCHRONOUS PIPELINE: Decoupled Capture, Queue-based AI Worker, and MJPEG Streamer."""
     def __init__(self, source):
         self.source = source
-        if source == 0:
-            # Use DirectShow for faster/more stable camera access on Windows
-            self.cap = cv2.VideoCapture(source, cv2.CAP_DSHOW)
-        else:
-            self.cap = cv2.VideoCapture(self.source)
+        # Use simple VideoCapture for cross-platform compatibility
+        self.cap = cv2.VideoCapture(self.source)
         if not self.cap.isOpened() and self.source == 0:
             print("[CAMERA] Physical webcam not found. Falling back to VIRTUAL CAMERA (test_vid.mp4)")
             demo_path = os.path.join(os.path.dirname(__file__), 'test_vid.mp4')
