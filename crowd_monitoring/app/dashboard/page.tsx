@@ -183,7 +183,7 @@ export default function Dashboard() {
         is_persistent: false
     });
 
-    const [isCameraOn, setIsCameraOn] = useState(false);
+    const [isCameraOn, setIsCameraOn] = useState(true); // Default to ON for Auto-play
     const [isCctvModalOpen, setIsCctvModalOpen] = useState(false);
     const [cctvConfig, setCctvConfig] = useState({ url: "", user: "", password: "" });
     const [activeSource, setActiveSource] = useState<"webcam" | "cctv">("webcam");
@@ -195,6 +195,29 @@ export default function Dashboard() {
     const [streamLoading, setStreamLoading] = useState(false);
     const [toasts, setToasts] = useState<any[]>([]);
     const [processedNotificationIds, setProcessedNotificationIds] = useState<Set<string>>(new Set());
+
+    // Auto-play / Initialize logic on mount
+    useEffect(() => {
+        const autoInit = async () => {
+            const token = localStorage.getItem("access_token");
+            if (!token) return;
+            try {
+                // Force backend to start the stream
+                await fetch(`${API_BASE_URL}/api/camera/toggle`, {
+                    method: "POST",
+                    headers: { 
+                        "Authorization": `Bearer ${token}`, 
+                        "Content-Type": "application/json" 
+                    },
+                    body: JSON.stringify({ active: true })
+                });
+                console.log("[AUTO-PLAY] Camera initialization signal sent.");
+            } catch (err) {
+                console.warn("[AUTO-PLAY] Failed to signal backend startup.");
+            }
+        };
+        if (mounted) autoInit();
+    }, [mounted]);
 
     useEffect(() => {
         const fetchCameraStatus = async () => {
