@@ -701,7 +701,7 @@ export default function Dashboard() {
                                 key={streamKey}
                                 src={`${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}`}
                                 alt="Detection Feed"
-                                className="w-full h-full object-contain mix-blend-multiply"
+                                className="w-full h-full object-contain"
                                 onError={() => setTimeout(() => setStreamKey(k => k + 1), 2000)}
                             />
                         ) : (
