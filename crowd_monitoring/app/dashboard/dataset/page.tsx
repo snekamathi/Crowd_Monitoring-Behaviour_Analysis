@@ -35,8 +35,8 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         try {
             const [statsRes, validRes] = await Promise.all([
-                fetch(`${API_BASE_URL}/api/dataset/stats`, { headers: { `Authorization': `Bearer ${token}` } }),
-                fetch(`${API_BASE_URL}/api/dataset/validate`, { headers: { `Authorization': `Bearer ${token}` } })
+                fetch(`${API_BASE_URL}/api/dataset/stats`, { headers: { "Authorization": `Bearer ${token}` } }),
+                fetch(`${API_BASE_URL}/api/dataset/validate`, { headers: { "Authorization": `Bearer ${token}` } })
             ]);
             
             if (statsRes.ok && validRes.ok) {
@@ -57,7 +57,7 @@ export default function DatasetPage() {
             const token = localStorage.getItem("access_token");
             try {
                 const res = await fetch(`${API_BASE_URL}/api/dataset/train/status`, {
-                    headers: { `Authorization': `Bearer ${token}` }
+                    headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (res.ok) setTrainStatus(await res.json());
             } catch (err) {}
@@ -78,8 +78,8 @@ export default function DatasetPage() {
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/upload`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` },
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` },
                 body: formData
             });
             if (res.ok) {
@@ -105,8 +105,8 @@ export default function DatasetPage() {
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/video-to-frames`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` },
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` },
                 body: formData
             });
             if (res.ok) {
@@ -127,8 +127,8 @@ export default function DatasetPage() {
         setActionLoading("sample");
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/sample`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 await fetchStats();
@@ -146,8 +146,8 @@ export default function DatasetPage() {
         setActionLoading("cleanup");
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/cleanup`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 const data = await res.json();
@@ -166,8 +166,8 @@ export default function DatasetPage() {
         const token = localStorage.getItem("access_token");
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/train`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 alert("Model training sequence initiated successfully.");
@@ -185,8 +185,8 @@ export default function DatasetPage() {
         setActionLoading("deploy");
         try {
             const res = await fetch(`${API_BASE_URL}/api/dataset/deploy`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 const data = await res.json();

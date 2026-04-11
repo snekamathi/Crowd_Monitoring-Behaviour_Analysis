@@ -83,7 +83,7 @@ export default function Dashboard() {
         try {
             // Requirement 3 & 6: Sync status with Central Backend
             const res = await fetch(``api/alerts/${id}`, {
-                method: 'PATCH',
+                method: "PATCH",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: action })
             });
@@ -94,9 +94,9 @@ export default function Dashboard() {
                     const token = localStorage.getItem("access_token");
                     const alertDetail = (incidents as any[]).find(i => i.id === id);
                     await fetch(`${API_BASE_URL}/api/emergency/action`, {
-                        method: `POST',
+                        method: "POST",
                         headers: { 
-                            'Authorization': `Bearer ${token}`,
+                            "Authorization": `Bearer ${token}`,
                             'Content-Type': 'application/json' 
                         },
                         body: JSON.stringify({ 
@@ -121,8 +121,8 @@ export default function Dashboard() {
         const token = localStorage.getItem("access_token");
         try {
             const res = await fetch(`${API_BASE_URL}/api/emergency/siren`, {
-                method: `POST',
-                headers: { 'Authorization': `Bearer ${token}` }
+                method: "POST",
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 if (sirenAudio) {
@@ -146,9 +146,9 @@ export default function Dashboard() {
         const token = localStorage.getItem("access_token");
         try {
             const res = await fetch(`${API_BASE_URL}/api/emergency/broadcast`, {
-                method: `POST',
+                method: "POST",
                 headers: { 
-                    'Authorization': `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ message: "Emergency evacuation protocol initiated. Please follow staff instructions." })
@@ -202,7 +202,7 @@ export default function Dashboard() {
             if (!token) return;
             try {
             const res = await fetch(`${API_BASE_URL}/api/camera/status`, {
-                    headers: { `Authorization': `Bearer ${token}` }
+                    headers: { "Authorization": `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const data = await res.json();
@@ -222,7 +222,7 @@ export default function Dashboard() {
 
             try {
                 const res = await fetch(`${API_BASE_URL}/api/stats`, {
-                    headers: { `Authorization': `Bearer ${token}` }
+                    headers: { "Authorization": `Bearer ${token}` }
                 });
 
                 if (res.status === 401) {
@@ -272,7 +272,7 @@ export default function Dashboard() {
 
             try {
                 const res = await fetch(`${API_BASE_URL}/api/history`, {
-                    headers: { `Authorization': `Bearer ${token}` }
+                    headers: { "Authorization": `Bearer ${token}` }
                 });
 
                 if (res.status === 401) {
@@ -328,9 +328,9 @@ export default function Dashboard() {
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/camera/toggle`, {
-                method: `POST',
+                method: "POST",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ active: !isCameraOn })
@@ -357,9 +357,9 @@ export default function Dashboard() {
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/camera/source`, {
-                method: `POST',
+                method: "POST",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    "Authorization": `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
@@ -387,8 +387,8 @@ export default function Dashboard() {
             const token = localStorage.getItem("access_token");
             try {
                 await fetch(`${API_BASE_URL}/api/camera/source`, {
-                    method: `POST',
-                    headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+                    method: "POST",
+                    headers: { "Authorization": `Bearer ${token}`, 'Content-Type': 'application/json' },
                     body: JSON.stringify({ source: "webcam" })
                 });
                 setActiveSource("webcam");

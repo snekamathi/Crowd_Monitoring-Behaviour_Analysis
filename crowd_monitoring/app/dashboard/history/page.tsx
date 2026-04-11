@@ -26,7 +26,7 @@ export default function AlertHistoryPage() {
         const token = localStorage.getItem("access_token");
         try {
             const res = await fetch(`${API_BASE_URL}/api/history`, {
-                headers: { `Authorization": `Bearer ${token}` }
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 const data = await res.json();
@@ -47,7 +47,7 @@ export default function AlertHistoryPage() {
         const token = localStorage.getItem("access_token");
         try {
             const res = await fetch(`${API_BASE_URL}/api/history/export/csv`, {
-                headers: { `Authorization": `Bearer ${token}` }
+                headers: { "Authorization": `Bearer ${token}` }
             });
             if (res.ok) {
                 const blob = await res.blob();
