@@ -137,12 +137,19 @@ rtsp_url = ""
 #  Asynchronous Stream Controller (Optimized for RTSP)                 #
 # -------------------------------------------------------------------- #
 
+# Global buffer for uploaded frames (from browser)
+uploaded_frame_buffer = None
+buffer_lock = threading.Lock()
+
 class AsyncCrowdProcessor:
     """ASYNCHRONOUS PIPELINE: Decoupled Capture, Queue-based AI Worker, and MJPEG Streamer."""
     def __init__(self, source):
         self.source = source
         # Optimize for Windows and fallback to virtual camera
-        if self.source == 0:
+        if self.source == 'uploaded':
+            print("[CAMERA] Initialized for BROWSER UPLOADED frames.")
+            self.cap = None # We won't use VideoCapture
+        elif self.source == 0:
             if os.name == 'nt': # Windows-specific opening
                 print("[CAMERA] Attempting to open physical webcam with CAP_DSHOW...")
                 self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
@@ -255,14 +262,27 @@ class AsyncCrowdProcessor:
         """Thread A: Continuous frame capture and UI updates (15-20 FPS)."""
         frame_idx = 0
         while self.running:
-            success, frame = self.cap.read()
+            # REQUIREMENT: Capture Source
+            if self.source == 'uploaded':
+                global uploaded_frame_buffer
+                with buffer_lock:
+                    frame = uploaded_frame_buffer
+                    uploaded_frame_buffer = None # Consume it
+                success = frame is not None
+            else:
+                success, frame = self.cap.read()
+                
             if not success:
                 # If it's a video file or fallback, loop back to the start
-                if not isinstance(self.source, int) or not self.cap.get(cv2.CAP_PROP_FPS) == 0:
+                if self.cap and (not isinstance(self.source, int) or not self.cap.get(cv2.CAP_PROP_FPS) == 0):
                     self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
                     success, frame = self.cap.read()
                 
                 if not success:
+                    # If we are in 'uploaded' mode, just wait for the next frame
+                    if self.source == 'uploaded':
+                        time.sleep(0.05)
+                        continue
                     print("[PROCESSOR] Camera read failure. Waiting...")
                     time.sleep(1.0)
                     continue
@@ -436,7 +456,7 @@ class AsyncCrowdProcessor:
 
     def stop(self):
         self.running = False
-        if self.cap.isOpened():
+        if self.cap and self.cap.isOpened():
             self.cap.release()
         print("[PROCESSOR] Stopped.")
 
@@ -453,11 +473,43 @@ def get_or_create_processor():
                 global_processor = None
             return None
         
+        # DETERMINISTIC SOURCE SELECTION
+        # If on Railway/Deploy, we force 'uploaded' mode for webcams
         source = 0 if camera_source == "webcam" else rtsp_url
+        if camera_source == "webcam" and os.environ.get('RAILWAY_STATIC_URL'):
+            source = 'uploaded'
+            
         if global_processor is None or global_processor.source != source:
             if global_processor: global_processor.stop()
             global_processor = AsyncCrowdProcessor(source)
         return global_processor
+
+# New endpoint for browser-captured frames
+@app.route('/api/camera/upload_frame', methods=['POST'])
+@jwt_required()
+def upload_frame():
+    global uploaded_frame_buffer
+    try:
+        data = request.get_json()
+        if not data or 'image' not in data:
+            return jsonify({"error": "No image data"}), 400
+            
+        # Decode base64 image
+        import base64
+        import numpy as np
+        import cv2
+
+        image_data = data['image'].split(",")[1]
+        nparr = np.frombuffer(base64.b64decode(image_data), np.uint8)
+        frame = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+
+        if frame is not None:
+            with buffer_lock:
+                uploaded_frame_buffer = frame
+            return jsonify({"status": "ok"}), 200
+        return jsonify({"error": "Decode failed"}), 400
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # -------------------------------------------------------------------- #
 #  Video Streaming Logic                                               #

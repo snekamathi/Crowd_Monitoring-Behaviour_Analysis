@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
     Users, 
     AlertTriangle, 
@@ -195,6 +195,8 @@ export default function Dashboard() {
     const [streamLoading, setStreamLoading] = useState(false);
     const [toasts, setToasts] = useState<any[]>([]);
     const [processedNotificationIds, setProcessedNotificationIds] = useState<Set<string>>(new Set());
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const fetchCameraStatus = async () => {
@@ -314,13 +316,53 @@ export default function Dashboard() {
         fetchStats();
         fetchHistory();
         fetchCentralAlerts();
+        
+        // --- BROWSER WEBCAM CAPTURE LOOP ---
+        let captureInterval: NodeJS.Timeout;
+        
+        const startCapture = () => {
+            captureInterval = setInterval(async () => {
+                if (!videoRef.current || !canvasRef.current || !isCameraOn || activeSource !== 'webcam') return;
+                
+                const video = videoRef.current;
+                const canvas = canvasRef.current;
+                const context = canvas.getContext('2d');
+                
+                if (video.readyState === video.HAVE_ENOUGH_DATA && context) {
+                    canvas.width = 640;
+                    canvas.height = 480;
+                    context.drawImage(video, 0, 0, 640, 480);
+                    
+                    const imageData = canvas.toDataURL('image/jpeg', 0.6);
+                    const token = localStorage.getItem("access_token");
+                    
+                    try {
+                        await fetch(`${API_BASE_URL}/api/camera/upload_frame`, {
+                            method: "POST",
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify({ image: imageData })
+                        });
+                    } catch (err) {
+                        console.debug("Frame upload skipped");
+                    }
+                }
+            }, 300); // 3-4 FPS is enough for monitoring and keeps bandwidth low
+        };
+
+        if (isCameraOn && activeSource === 'webcam') {
+            startCapture();
+        }
 
         return () => {
             clearInterval(interval);
             clearInterval(historyInterval);
             clearInterval(centralInterval);
+            if (captureInterval) clearInterval(captureInterval);
         };
-    }, []);
+    }, [isCameraOn, activeSource]);
 
     const toggleCamera = async () => {
         const token = localStorage.getItem("access_token");
@@ -339,6 +381,23 @@ export default function Dashboard() {
             if (res.ok) {
                 const data = await res.json();
                 setIsCameraOn(data.active);
+                
+                // Handle Local Browser Camera Hardware
+                if (data.active && activeSource === 'webcam') {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ 
+                            video: { width: 640, height: 480 } 
+                        });
+                        setLocalStream(stream);
+                        if (videoRef.current) {
+                            videoRef.current.srcObject = stream;
+                        }
+                    } catch (err) {
+                        console.error("Browser camera access denied:", err);
+                        alert("Camera Access Denied: Please allow camera permissions in your browser.");
+                    }
+                }
+
                 if (!data.active && localStream) {
                     localStream.getTracks().forEach(t => t.stop());
                     setLocalStream(null);
@@ -713,6 +772,10 @@ export default function Dashboard() {
                         <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md text-slate-800 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded border border-white">
                             Source: {activeSource.toUpperCase()} • Mode: DETECT_COUNT
                         </div>
+                        
+                        {/* Hidden Capture Elements */}
+                        <video ref={videoRef} autoPlay playsInline className="hidden" />
+                        <canvas ref={canvasRef} className="hidden" />
                     </div>
                 </div>
 
