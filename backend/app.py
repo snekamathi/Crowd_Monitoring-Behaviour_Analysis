@@ -790,7 +790,6 @@ def reset_password():
 # -------------------------------------------------------------------- #
 
 @app.route('/api/video_feed')
-@jwt_required()
 def video_feed():
     # Roles allowed: all
     print(f"\n[HTTP] video_feed request received from {request.remote_addr}")
