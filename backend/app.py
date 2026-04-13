@@ -141,6 +141,11 @@ rtsp_url = ""
 uploaded_frame_buffer = None
 buffer_lock = threading.Lock()
 
+def get_error_frame(text="FEED OFFLINE", color=(0, 0, 255)):
+    frame = np.zeros((480, 640, 3), dtype=np.uint8)
+    cv2.putText(frame, text, (140, 240), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
+    return frame
+
 class AsyncCrowdProcessor:
     """ASYNCHRONOUS PIPELINE: Decoupled Capture, Queue-based AI Worker, and MJPEG Streamer."""
     def __init__(self, source):
@@ -305,7 +310,10 @@ class AsyncCrowdProcessor:
                     except queue.Full:
                         pass
             else:
-                time.sleep(0.01)
+                # If no frame available (especially in 'uploaded' mode), show placeholder
+                if self.source == 'uploaded' and self.display_frame is None:
+                    self.display_frame = self._apply_overlay(get_error_frame("READY: START WEBCAM"))
+                time.sleep(0.05)
 
 
     def _ai_worker_thread(self):
@@ -476,8 +484,12 @@ def get_or_create_processor():
         # DETERMINISTIC SOURCE SELECTION
         # If on Railway/Deploy, we force 'uploaded' mode for webcams
         source = 0 if camera_source == "webcam" else rtsp_url
-        if camera_source == "webcam" and os.environ.get('RAILWAY_STATIC_URL'):
-            source = 'uploaded'
+        if camera_source == "webcam":
+            # Check for cloud indicators
+            is_cloud = os.environ.get('RAILWAY_STATIC_URL') or os.environ.get('PORT') == '5001' or os.name != 'nt'
+            if is_cloud:
+                source = 'uploaded'
+                print(f"[PROCESSOR] CLOUD DETECTED: Forcing source to '{source}'")
             
         if global_processor is None or global_processor.source != source:
             if global_processor: global_processor.stop()
