@@ -141,18 +141,34 @@ class AsyncCrowdProcessor:
     """ASYNCHRONOUS PIPELINE: Decoupled Capture, Queue-based AI Worker, and MJPEG Streamer."""
     def __init__(self, source):
         self.source = source
-        # Use simple VideoCapture for cross-platform compatibility
-        self.cap = cv2.VideoCapture(self.source)
-        if not self.cap.isOpened() and self.source == 0:
-            print("[CAMERA] Physical webcam not found. Falling back to VIRTUAL CAMERA (test_vid.mp4)")
-            demo_path = os.path.join(os.path.dirname(__file__), 'test_vid.mp4')
-            if os.path.exists(demo_path):
-                self.cap = cv2.VideoCapture(demo_path)
+        # Optimize for Windows and fallback to virtual camera
+        if self.source == 0:
+            if os.name == 'nt': # Windows-specific opening
+                print("[CAMERA] Attempting to open physical webcam with CAP_DSHOW...")
+                self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
             else:
-                print("[CAMERA] Error: Demo video not found at", demo_path)
-            # Optimize OpenCV for low-latency RTSP
+                self.cap = cv2.VideoCapture(0)
+                
+            if not self.cap.isOpened():
+                print("[CAMERA] Physical webcam not found or busy. Falling back to VIRTUAL CAMERA...")
+                demo_path = os.path.join(os.path.dirname(__file__), 'test_vid.mp4')
+                if os.path.exists(demo_path):
+                    self.cap = cv2.VideoCapture(demo_path)
+                    print(f"[CAMERA] Virtual camera started using: {demo_path}")
+                else:
+                    print(f"[CAMERA] Error: Demo video not found at {demo_path}")
+        else:
+            # RTSP or Video File
+            self.cap = cv2.VideoCapture(self.source)
+
+        # Optimize OpenCV settings
+        if self.cap.isOpened():
             self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
-            self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+            # Try to set MJPEG for speed if it's a webcam
+            if self.source == 0:
+                self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+        else:
+            print(f"[CAMERA] FAILED to open source: {self.source}")
         
         self.display_frame = None  # Latest frame for smooth streaming
         self.overlay_frame = None  # Latest frame with AI bounding boxes
@@ -241,10 +257,15 @@ class AsyncCrowdProcessor:
         while self.running:
             success, frame = self.cap.read()
             if not success:
-                # If it's a video file (Virtual Camera), loop back to the start
-                if self.source == 0 or isinstance(self.source, str):
+                # If it's a video file or fallback, loop back to the start
+                if not isinstance(self.source, int) or not self.cap.get(cv2.CAP_PROP_FPS) == 0:
                     self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
                     success, frame = self.cap.read()
+                
+                if not success:
+                    print("[PROCESSOR] Camera read failure. Waiting...")
+                    time.sleep(1.0)
+                    continue
             
             if success and frame is not None:
                 frame_idx += 1
