@@ -195,6 +195,7 @@ export default function Dashboard() {
     const [streamLoading, setStreamLoading] = useState(false);
     const [toasts, setToasts] = useState<any[]>([]);
     const [processedNotificationIds, setProcessedNotificationIds] = useState<Set<string>>(new Set());
+    const [processedFrame, setProcessedFrame] = useState<string | null>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -236,6 +237,9 @@ export default function Dashboard() {
                 if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
                 const result = await res.json();
                 setStats(prev => ({ ...prev, ...result }));
+                if (result.latest_frame) {
+                    setProcessedFrame(result.latest_frame);
+                }
 
                 const now = new Date();
                 const istTime = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false });
@@ -758,7 +762,7 @@ export default function Dashboard() {
                         {isCameraOn ? (
                             <img
                                 key={streamKey}
-                                src={`${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}`}
+                                src={processedFrame || `${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}`}
                                 alt="Detection Feed"
                                 className="w-full h-full object-contain"
                                 onError={() => setTimeout(() => setStreamKey(k => k + 1), 2000)}

@@ -465,9 +465,15 @@ class AsyncCrowdProcessor:
             except Exception as ai_err:
                 print(f"[PROCESSOR-AI] Worker Error: {ai_err}")
 
-    def get_frame(self):
+    def get_frame(self, as_base64=False):
         """Returns the best available frame for display."""
-        # Always return display_frame which now carries persistent overlays
+        if as_base64 and self.display_frame is not None:
+            try:
+                ret, img = cv2.imencode('.jpg', self.display_frame, [cv2.IMWRITE_JPEG_QUALITY, 60])
+                if ret:
+                    import base64
+                    return f"data:image/jpeg;base64,{base64.b64encode(img).decode('utf-8')}"
+            except: pass
         return self.display_frame
 
     def stop(self):
@@ -817,7 +823,15 @@ def video_feed():
 @jwt_required()
 def get_stats():
     # Roles allowed: all
-    return jsonify(global_stats)
+    processor = get_or_create_processor()
+    latest_frame = None
+    if processor:
+        latest_frame = processor.get_frame(as_base64=True)
+        
+    return jsonify({
+        **global_stats,
+        "latest_frame": latest_frame
+    })
 
 
 @app.route('/api/history', methods=['GET'])
