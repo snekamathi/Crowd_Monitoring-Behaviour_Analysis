@@ -202,8 +202,13 @@ class AsyncCrowdProcessor:
                 db_conf = float(get_setting('confidence', 0.20))
         except: pass
         
+        model_path = os.path.join(os.path.dirname(__file__), "models", "crowd_custom.pt")
+        if not os.path.exists(model_path):
+            print(f"[PROCESSOR] Custom model not found at {model_path}. Falling back to yolov8n.pt")
+            model_path = os.path.join(os.path.dirname(__file__), "yolov8n.pt")
+
         self.live_detector = CrowdDetector(
-            model_path=os.path.join(os.path.dirname(__file__), "models", "crowd_custom.pt"),
+            model_path=model_path,
             confidence=db_conf,
             iou_threshold=0.45,
             img_size=480 # Reduced from 640 to 480 for 30%+ performance boost on CPU
@@ -549,20 +554,38 @@ def upload_frame():
             with buffer_lock:
                 uploaded_frame_buffer = frame
             
-            # REPRO-FIX: Responsive Feedback (Architecture V2)
-            # Instead of relying solely on MJPEG streams, we return the latest 
-            # AI-processed frame directly in the upload response.
+            # REPRO-FIX: Sync Processing for Webcam (Architecture V3)
+            # Browser-captured frames are processed HIGHER priority to ensure dashboard results.
             processed_data = None
             try:
-                # Use the existing processor or the latest known display_frame
                 processor = get_or_create_processor()
-                if processor:
+                if processor and processor.source == 'uploaded':
+                    # Directly run AI on this specific frame for immediate feedback
+                    res_frame, count, unique, dets = processor.live_detector.process_frame(frame, draw=True, track=False)
+                    
+                    # Update global stats immediately
+                    global_stats.update({
+                        "count": count,
+                        "unique_count": unique,
+                        "behavior": "Normal", # Quick placeholder for sync response
+                        "model_used": processor.live_detector.model_name
+                    })
+
+                    # Encode back to base64
+                    ret, img = cv2.imencode('.jpg', res_frame, [cv2.IMWRITE_JPEG_QUALITY, 60])
+                    if ret:
+                        import base64
+                        processed_data = f"data:image/jpeg;base64,{base64.b64encode(img).decode('utf-8')}"
+                elif processor:
+                    # Fallback to current processor state for RTSP/Video
                     processed_data = processor.get_frame(as_base64=True)
-            except: pass
+            except Exception as sync_err:
+                print(f"[API] Sync process error: {sync_err}")
 
             return jsonify({
                 "status": "ok",
-                "processed": processed_data
+                "processed": processed_data,
+                "count": global_stats["count"]
             }), 200
         return jsonify({"error": "Decode failed"}), 400
     except Exception as e:
