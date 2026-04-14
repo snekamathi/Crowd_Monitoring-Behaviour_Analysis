@@ -61,11 +61,19 @@ class CrowdDetector:
         self.id_frames_seen = {} # {id: num_frames}
         
         if _YOLO_AVAILABLE:
-            self.model = YOLO(model_path)
-            print(f"Initialization: {self.model_name} tracking mode active "
-                  f"[conf={self.confidence}, iou={self.iou_threshold}]")
+            try:
+                self.model = YOLO(model_path)
+                print(f"Initialization: {self.model_name} tracking mode active [conf={self.confidence}]")
+                self.model_working = True
+            except Exception as e:
+                print(f"[ERROR] Could not load YOLO weights: {e}")
+                self.model = None
+                self.model_name = "SAFE_MODE"
+                self.model_working = False
         else:
             self.model = None
+            self.model_name = "NOT_INSTALLED"
+            self.model_working = False
 
     def reload_model(self, new_model_path: str):
         """Hot-swap the YOLO model weights without restarting the system."""
@@ -261,7 +269,9 @@ class CrowdDetector:
                     if tid in self.id_frames_seen: del self.id_frames_seen[tid]
 
         frame_count = len(detections)
-        unique_count = len(self.confirmed_ids)
+        # REPRO-FIX: If we are in low-FPS mode, unique_count should fall back to frame_count 
+        # to ensure the user sees results immediately.
+        unique_count = len(self.confirmed_ids) if len(self.confirmed_ids) > 0 else frame_count
 
         return frame, frame_count, unique_count, detections
 

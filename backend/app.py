@@ -335,7 +335,10 @@ class AsyncCrowdProcessor:
                 # AI Detection & Counting (YOLOv8 ID-based)
                 # Skip internal drawing here as UI overlays are handled in the capture thread
                 if frame is not None:
-                    res_frame, count, unique, dets = self.live_detector.process_frame(frame, draw=False)
+                    # REPRO-FIX: For uploaded frames (low FPS), use track=False for instant detection
+                    # AND ensure draw=True so the user sees the bounding boxes!
+                    use_tracking = self.source != 'uploaded'
+                    res_frame, count, unique, dets = self.live_detector.process_frame(frame, draw=True, track=use_tracking)
                 
                 # --- ENHANCED ANALYSIS ---
                 trend = self.live_detector.get_trend()
@@ -635,10 +638,19 @@ def toggle_camera():
     try:
         data = request.get_json()
         new_status = data.get('active', not camera_active)
+        
+        # Managed Critical Update
         camera_active = new_status
         
-        # Manage Global Processor
-        processor = get_or_create_processor()
+        try:
+            # Manage Global Processor
+            processor = get_or_create_processor()
+        except Exception as e:
+            print(f"[API] Connection failure: {e}")
+            return jsonify({
+                "error": "Initialization Failed", 
+                "message": "AI Model could not be initialized. Please check backend logs or model files."
+            }), 500
         
         # Check if processor successfully opened the source (only if it's a hardware cap)
         if camera_active and processor is not None:

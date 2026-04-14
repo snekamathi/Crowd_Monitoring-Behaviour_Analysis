@@ -814,22 +814,21 @@ export default function Dashboard() {
                                 )}
 
                                 {/* LAYER 2: AI Cloud Processed Feed */}
-                                <img
-                                    key={streamUrl}
-                                    src={processedFrame || streamUrl || undefined}
-                                    alt="AI Detection Feed"
-                                    className="relative w-full h-full object-contain z-10 opacity-60"
-                                    onError={(e) => {
-                                        console.info("Stream stabilizing...");
-                                        setTimeout(() => setStreamKey(k => k + 1), 3000);
-                                    }}
-                                />
+                                {processedFrame && processedFrame.startsWith('data:image') && (
+                                    <img
+                                        key={streamUrl}
+                                        src={processedFrame}
+                                        alt=""
+                                        className="relative w-full h-full object-contain z-10 opacity-70"
+                                        onError={() => setProcessedFrame(null)}
+                                    />
+                                )}
 
                                 {/* LAYER 3: Diagnostic UI */}
                                 {activeSource === 'webcam' && (
                                     <div className="absolute top-4 right-4 flex flex-col items-end gap-2 z-20">
-                                        <div className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-widest shadow-lg ${Date.now() - lastFrameTime < 1000 ? "bg-emerald-500 text-white" : "bg-red-500 text-white animate-pulse"}`}>
-                                            {Date.now() - lastFrameTime < 1000 ? "AI Uplink: Synchronized" : "AI Uplink: Latency Detected"}
+                                        <div className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-widest shadow-xl border border-white/10 ${Date.now() - lastFrameTime < 2000 ? "bg-emerald-600 text-white" : "bg-red-600 text-white animate-pulse"}`}>
+                                            {Date.now() - lastFrameTime < 2000 ? "AI Uplink: Synchronized" : "AI Uplink: Synchronizing..."}
                                         </div>
                                         <button 
                                             onClick={() => setStreamKey(k => k + 1)}
