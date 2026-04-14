@@ -253,14 +253,15 @@ class AsyncCrowdProcessor:
 
         # 3. Draw Detector Info
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame, f"CORE: {self.live_detector.model_name}", (10, 20), font, 0.45, (200, 200, 200), 1)
+        ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+        cv2.putText(frame, f"CORE: {self.live_detector.model_name} | LIVE: {ts}", (10, 20), font, 0.45, (200, 200, 200), 1)
         cv2.putText(frame, f"COUNT: {meta['count']}", (10, 48), font, 0.75, (0, 255, 0), 2)
         cv2.putText(frame, f"TREND: {meta['trend']}", (10, 72), font, 0.5, (255, 255, 255), 1)
         cv2.putText(frame, f"UNIQUE: {meta['unique']}", (10, 92), font, 0.45, (0, 165, 255), 1)
         
         # 4. Draw Analysis Results
         cv2.putText(frame, f"STATUS: {meta['beh_status']}", (10, 115), font, 0.5, meta['hud_color'], 2)
-        cv2.putText(frame, f"RISK: {meta['risk_cat']}", (10, 140), font, 0.6, meta['hud_color'], 2)
+        cv2.putText(frame, f"RISK: {meta['risk_cat']} | P_ID: {os.getpid()}", (10, 140), font, 0.6, meta['hud_color'], 2)
 
         # 5. Quadrant Grid
         cv2.line(frame, (w // 2, 0), (w // 2, h), (40, 40, 40), 1)

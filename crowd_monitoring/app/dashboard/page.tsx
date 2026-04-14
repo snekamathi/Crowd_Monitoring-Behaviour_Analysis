@@ -785,39 +785,59 @@ export default function Dashboard() {
                             </button>
                         </div>
                     </div>
-                    <div className="bg-slate-100 aspect-video flex items-center justify-center relative border-t border-b border-slate-200">
+                    <div className="bg-slate-900 aspect-video flex items-center justify-center relative border-t border-b border-slate-200 overflow-hidden">
                         {isCameraOn ? (
                             <>
+                                {/* LAYER 1: Local Zero-Latency Hardware Feed */}
+                                {activeSource === 'webcam' && (
+                                    <video 
+                                        ref={videoRef} 
+                                        autoPlay 
+                                        playsInline 
+                                        muted
+                                        className="absolute inset-0 w-full h-full object-contain opacity-40 brightness-50"
+                                    />
+                                )}
+
+                                {/* LAYER 2: AI Cloud Processed Feed */}
                                 <img
                                     key={streamUrl}
                                     src={processedFrame || streamUrl || undefined}
-                                    alt="Detection Feed"
-                                    className="w-full h-full object-contain"
+                                    alt="AI Detection Feed"
+                                    className="relative w-full h-full object-contain z-10"
                                     onError={(e) => {
-                                        console.error("Stream connection lost");
-                                        setTimeout(() => setStreamKey(k => k + 1), 5000);
+                                        console.info("Stream stabilizing...");
+                                        setTimeout(() => setStreamKey(k => k + 1), 3000);
                                     }}
                                 />
+
+                                {/* LAYER 3: Diagnostic UI */}
                                 {activeSource === 'webcam' && (
-                                    <div className="absolute top-4 right-4 flex items-center gap-2">
-                                        <div className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-widest ${Date.now() - lastFrameTime < 1000 ? "bg-emerald-500 text-white" : "bg-red-500 text-white animate-pulse"}`}>
-                                            {Date.now() - lastFrameTime < 1000 ? "Stream: Uplinking" : "Stream: Interrupted"}
+                                    <div className="absolute top-4 right-4 flex flex-col items-end gap-2 z-20">
+                                        <div className={`px-2 py-1 rounded text-[9px] font-bold uppercase tracking-widest shadow-lg ${Date.now() - lastFrameTime < 1000 ? "bg-emerald-500 text-white" : "bg-red-500 text-white animate-pulse"}`}>
+                                            {Date.now() - lastFrameTime < 1000 ? "AI Uplink: Synchronized" : "AI Uplink: Latency Detected"}
                                         </div>
+                                        <button 
+                                            onClick={() => setStreamKey(k => k + 1)}
+                                            className="px-2 py-1 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded text-[8px] font-bold text-white uppercase border border-white/20 transition-all"
+                                        >
+                                            Force Refresh AI
+                                        </button>
                                     </div>
                                 )}
                             </>
                         ) : (
                             <div className="text-center space-y-4">
-                                <CameraOff className="w-12 h-12 text-slate-300 mx-auto" />
-                                <p className="text-slate-400 text-sm font-medium">Vision system is currently offline</p>
+                                <CameraOff className="w-12 h-12 text-slate-700 mx-auto" />
+                                <p className="text-slate-500 text-sm font-medium">Vision system is currently offline</p>
                             </div>
                         )}
-                        <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md text-slate-800 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded border border-white">
-                            Source: {activeSource.toUpperCase()} • Mode: REAL_TIME_AI
+
+                        <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded border border-white/20 z-20">
+                            Source: {activeSource.toUpperCase()} • Mode: AI_CORE_V3
                         </div>
                         
-                        {/* Hidden Capture Elements */}
-                        <video ref={videoRef} autoPlay playsInline className="hidden" />
+                        {/* Hidden Capture Logic Canvas */}
                         <canvas ref={canvasRef} className="hidden" />
                     </div>
                 </div>
