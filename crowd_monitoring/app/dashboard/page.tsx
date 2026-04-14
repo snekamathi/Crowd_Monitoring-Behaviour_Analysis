@@ -417,8 +417,12 @@ export default function Dashboard() {
 
     const toggleCamera = async () => {
         const token = localStorage.getItem("access_token");
-        if (!token) return;
+        if (!token) {
+            alert("No session found. Please log in again.");
+            return;
+        }
 
+        setIsConnecting(true);
         try {
             const res = await fetch(`${API_BASE_URL}/api/camera/toggle`, {
                 method: "POST",
@@ -432,10 +436,15 @@ export default function Dashboard() {
             if (res.ok) {
                 const data = await res.json();
                 setIsCameraOn(data.active);
-                // Hardware sync is now handled by useEffect globally
+            } else {
+                const error = await res.json();
+                alert(`Server Error: ${error.message || "Could not toggle camera"}`);
             }
         } catch (err) {
-            console.error("Failed to toggle camera.");
+            console.error("Failed to toggle camera:", err);
+            alert("Network Error: Could not reach the AI server.");
+        } finally {
+            setIsConnecting(false);
         }
     };
 
@@ -777,11 +786,16 @@ export default function Dashboard() {
                         </div>
                         <div className="flex items-center gap-4">
                             <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold border ${isCameraOn ? "bg-yellow-50 text-yellow-600 border-yellow-100" : "bg-slate-50 text-slate-400 border-slate-200"}`}>
-                                <div className={`w-1.5 h-1.5 rounded-full ${isCameraOn ? "bg-yellow-500" : "bg-slate-300"}`}></div>
-                                {isCameraOn ? "ACTIVE" : "STANDBY"}
+                                <div className={`w-1.5 h-1.5 rounded-full ${isCameraOn ? "bg-yellow-500" : "bg-slate-300"} ${isCameraOn ? "animate-pulse" : ""}`}></div>
+                                {isCameraOn ? (isConnecting ? "SYNCING..." : "ACTIVE") : "STANDBY"}
                             </div>
-                            <button onClick={toggleCamera} className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${isCameraOn ? "bg-red-50 border border-red-100" : ""}`} style={isCameraOn ? {color: '#b91c1c'} : {backgroundColor: '#334155', color: '#ffffff'}}>
-                                {isCameraOn ? "Terminate" : "Initialize"}
+                            <button 
+                                onClick={toggleCamera} 
+                                disabled={isConnecting}
+                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${isCameraOn ? "bg-red-50 border border-red-100" : ""} ${isConnecting ? "opacity-50 cursor-wait" : ""}`} 
+                                style={isCameraOn ? {color: '#b91c1c'} : {backgroundColor: '#334155', color: '#ffffff'}}
+                            >
+                                {isConnecting ? "Working..." : (isCameraOn ? "Terminate" : "Initialize")}
                             </button>
                         </div>
                     </div>
@@ -795,7 +809,7 @@ export default function Dashboard() {
                                         autoPlay 
                                         playsInline 
                                         muted
-                                        className="absolute inset-0 w-full h-full object-contain opacity-40 brightness-50"
+                                        className="absolute inset-0 w-full h-full object-contain"
                                     />
                                 )}
 
@@ -804,7 +818,7 @@ export default function Dashboard() {
                                     key={streamUrl}
                                     src={processedFrame || streamUrl || undefined}
                                     alt="AI Detection Feed"
-                                    className="relative w-full h-full object-contain z-10"
+                                    className="relative w-full h-full object-contain z-10 opacity-60"
                                     onError={(e) => {
                                         console.info("Stream stabilizing...");
                                         setTimeout(() => setStreamKey(k => k + 1), 3000);
