@@ -141,9 +141,14 @@ rtsp_url = ""
 uploaded_frame_buffer = None
 buffer_lock = threading.Lock()
 
-def get_error_frame(text="FEED OFFLINE", color=(0, 0, 255)):
+def get_error_frame(text="SYSTEM READY", subtext="WAITING FOR FEED", color=(255, 0, 0)):
+    # Create a blue background frame (BGR: 255, 0, 0)
     frame = np.zeros((480, 640, 3), dtype=np.uint8)
-    cv2.putText(frame, text, (140, 240), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
+    frame[:] = (180, 0, 0) # Deep Blue
+    
+    cv2.putText(frame, text, (180, 220), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 255, 255), 3)
+    cv2.putText(frame, subtext, (200, 260), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 1)
+    cv2.putText(frame, "CROWDSENSE AI CLOUD NODE", (10, 460), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 255), 1)
     return frame
 
 class AsyncCrowdProcessor:
@@ -310,9 +315,12 @@ class AsyncCrowdProcessor:
                     except queue.Full:
                         pass
             else:
-                # If no frame available (especially in 'uploaded' mode), show placeholder
-                if self.source == 'uploaded' and self.display_frame is None:
-                    self.display_frame = self._apply_overlay(get_error_frame("READY: START WEBCAM"))
+                # If no frame available (especially in 'uploaded' mode), show the BLUE SYSTEM READY frame
+                if self.source == 'uploaded' and (self.display_frame is None or frame_idx == 0):
+                    self.display_frame = self._apply_overlay(get_error_frame("SYSTEM READY", "WAITING FOR BROWSER"))
+                elif self.source != 'uploaded' and self.display_frame is None:
+                    self.display_frame = self._apply_overlay(get_error_frame("FEED OFFLINE", "CHECKING CONNECTION", (0, 0, 180)))
+                
                 time.sleep(0.05)
 
 
