@@ -542,7 +542,22 @@ def upload_frame():
         if frame is not None:
             with buffer_lock:
                 uploaded_frame_buffer = frame
-            return jsonify({"status": "ok"}), 200
+            
+            # REPRO-FIX: Responsive Feedback (Architecture V2)
+            # Instead of relying solely on MJPEG streams, we return the latest 
+            # AI-processed frame directly in the upload response.
+            processed_data = None
+            try:
+                # Use the existing processor or the latest known display_frame
+                processor = get_or_create_processor()
+                if processor:
+                    processed_data = processor.get_frame(as_base64=True)
+            except: pass
+
+            return jsonify({
+                "status": "ok",
+                "processed": processed_data
+            }), 200
         return jsonify({"error": "Decode failed"}), 400
     except Exception as e:
         return jsonify({"error": str(e)}), 500

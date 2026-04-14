@@ -384,8 +384,18 @@ export default function Dashboard() {
                             },
                             body: JSON.stringify({ image: imageData })
                         });
-                        if (res.ok) setLastFrameTime(Date.now());
-                        else console.debug("Frame upload rejected by server");
+                        
+                        if (res.ok) {
+                            const result = await res.json();
+                            // REPRO-FIX: Instant Responsive Update
+                            // If we got a processed frame back, show it immediately
+                            if (result.processed) {
+                                setProcessedFrame(result.processed);
+                            }
+                            setLastFrameTime(Date.now());
+                        } else {
+                            console.debug("Frame upload rejected by server");
+                        }
                     } catch (err) {
                         console.debug("Frame upload offline");
                     }
@@ -780,14 +790,11 @@ export default function Dashboard() {
                             <>
                                 <img
                                     key={streamUrl}
-                                    src={streamUrl || undefined}
+                                    src={processedFrame || streamUrl || undefined}
                                     alt="Detection Feed"
                                     className="w-full h-full object-contain"
                                     onError={(e) => {
                                         console.error("Stream connection lost");
-                                        if (processedFrame) {
-                                            (e.target as HTMLImageElement).src = processedFrame;
-                                        }
                                         setTimeout(() => setStreamKey(k => k + 1), 5000);
                                     }}
                                 />
