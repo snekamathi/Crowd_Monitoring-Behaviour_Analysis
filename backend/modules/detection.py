@@ -32,6 +32,10 @@ class CrowdDetector:
             size = self.model_name.lower().split("yolov8")[-1]
             self.model_name = f"{core}{size}" if size else core
         
+        # --- CLASS SENSITIVITY FIX ---
+        # Some custom models use different indices. We default to 0 for person.
+        self.target_classes = [0]
+        
         # Track history for smoothing (ID -> deque of boxes)
         self.track_history = {} # {id: [[x1,y1,x2,y2], ...]}
         self.max_history = 10    # Increased frames for smoother averaging
@@ -124,9 +128,9 @@ class CrowdDetector:
         else:
             results = self.model.predict(
                 source=frame,
-                conf=c,
+                conf=c * 0.75, # Boost sensitivity by 25% for static frames
                 iou=self.iou_threshold,
-                classes=[self._PERSON_CLASS],
+                classes=self.target_classes,
                 imgsz=self.img_size,
                 verbose=False
             )

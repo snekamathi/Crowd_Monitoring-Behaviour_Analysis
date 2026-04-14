@@ -567,12 +567,13 @@ def upload_frame():
                     global_stats.update({
                         "count": count,
                         "unique_count": unique,
-                        "behavior": "Normal", # Quick placeholder for sync response
-                        "model_used": processor.live_detector.model_name
+                        "behavior": "Normal",
+                        "model_used": processor.live_detector.model_name,
+                        "last_seen": time.time()
                     })
 
                     # Encode back to base64
-                    ret, img = cv2.imencode('.jpg', res_frame, [cv2.IMWRITE_JPEG_QUALITY, 60])
+                    ret, img = cv2.imencode('.jpg', res_frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
                     if ret:
                         import base64
                         processed_data = f"data:image/jpeg;base64,{base64.b64encode(img).decode('utf-8')}"
@@ -585,7 +586,9 @@ def upload_frame():
             return jsonify({
                 "status": "ok",
                 "processed": processed_data,
-                "count": global_stats["count"]
+                "count": global_stats["count"],
+                "unique": global_stats["unique_count"],
+                "model": global_stats["model_used"]
             }), 200
         return jsonify({"error": "Decode failed"}), 400
     except Exception as e:
