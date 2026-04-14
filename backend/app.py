@@ -271,28 +271,35 @@ class AsyncCrowdProcessor:
     def _capture_thread(self):
         """Thread A: Continuous frame capture and UI updates (15-20 FPS)."""
         frame_idx = 0
+        self.last_upload_time = time.time()
+        
         while self.running:
             # REQUIREMENT: Capture Source
             if self.source == 'uploaded':
                 global uploaded_frame_buffer
                 with buffer_lock:
                     frame = uploaded_frame_buffer
-                    uploaded_frame_buffer = None # Consume it
+                    if frame is not None:
+                        uploaded_frame_buffer = None # Consume it
+                        self.last_upload_time = time.time()
                 success = frame is not None
             else:
                 success, frame = self.cap.read()
                 
             if not success:
+                # REPRO-FIX: If we are in 'uploaded' mode and haven't seen a frame in 2s, show status
+                if self.source == 'uploaded':
+                    if time.time() - self.last_upload_time > 2.0:
+                        self.display_frame = self._apply_overlay(get_error_frame("SYSTEM READY", "WAITING FOR BROWSER FEED"))
+                    time.sleep(0.1)
+                    continue
+                
                 # If it's a video file or fallback, loop back to the start
                 if self.cap and (not isinstance(self.source, int) or not self.cap.get(cv2.CAP_PROP_FPS) == 0):
                     self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
                     success, frame = self.cap.read()
                 
                 if not success:
-                    # If we are in 'uploaded' mode, just wait for the next frame
-                    if self.source == 'uploaded':
-                        time.sleep(0.05)
-                        continue
                     print("[PROCESSOR] Camera read failure. Waiting...")
                     time.sleep(1.0)
                     continue
@@ -306,21 +313,13 @@ class AsyncCrowdProcessor:
                 self.display_frame = self._apply_overlay(processed)
                 
                 # REQUIREMENT 7: Optimized Frame Skip
-                # Process every 5th frame to significantly reduce CPU contention
                 if frame_idx % 5 == 0:
                     try:
-                        # Non-blocking put: if AI is busy, we skip this frame to avoid lag
                         if self.ai_queue.empty():
                             self.ai_queue.put_nowait(processed.copy())
                     except queue.Full:
                         pass
             else:
-                # If no frame available (especially in 'uploaded' mode), show the BLUE SYSTEM READY frame
-                if self.source == 'uploaded' and (self.display_frame is None or frame_idx == 0):
-                    self.display_frame = self._apply_overlay(get_error_frame("SYSTEM READY", "WAITING FOR BROWSER"))
-                elif self.source != 'uploaded' and self.display_frame is None:
-                    self.display_frame = self._apply_overlay(get_error_frame("FEED OFFLINE", "CHECKING CONNECTION", (0, 0, 180)))
-                
                 time.sleep(0.05)
 
 
@@ -500,10 +499,21 @@ def get_or_create_processor():
         source = 0 if camera_source == "webcam" else rtsp_url
         if camera_source == "webcam":
             # Check for cloud indicators
-            is_cloud = os.environ.get('RAILWAY_STATIC_URL') or os.environ.get('PORT') == '5001' or os.name != 'nt'
+            # REPRO-FIX: Robust Cloud Detection
+            # We assume cloud if we see common cloud env vars OR if we are on Linux (posix) 
+            # and NOT explicitly in a debug/local mode.
+            is_cloud = (
+                os.environ.get('RAILWAY_ENVIRONMENT') or 
+                os.environ.get('RAILWAY_STATIC_URL') or 
+                os.environ.get('PORT') or 
+                os.name != 'nt'
+            )
+            
             if is_cloud:
                 source = 'uploaded'
-                print(f"[PROCESSOR] CLOUD DETECTED: Forcing source to '{source}'")
+                print(f"[PROCESSOR] CLOUD ENVIRONMENT DETECTED: Forcing source to '{source}' mode.")
+            else:
+                print(f"[PROCESSOR] LOCAL ENVIRONMENT DETECTED: Source is {source}")
             
         if global_processor is None or global_processor.source != source:
             if global_processor: global_processor.stop()

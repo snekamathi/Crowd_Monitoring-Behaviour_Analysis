@@ -321,6 +321,34 @@ export default function Dashboard() {
         fetchHistory();
         fetchCentralAlerts();
         
+        // --- BROWSER HARDWARE SYNC ---
+        const syncHardware = async () => {
+            if (isCameraOn && activeSource === 'webcam') {
+                if (!localStream) {
+                    try {
+                        console.info("[SYSTEM] Initializing browser hardware camera...");
+                        const stream = await navigator.mediaDevices.getUserMedia({ 
+                            video: { width: 640, height: 480 } 
+                        });
+                        setLocalStream(stream);
+                        if (videoRef.current) {
+                            videoRef.current.srcObject = stream;
+                        }
+                    } catch (err) {
+                        console.error("Local hardware access failed:", err);
+                        // If we fail here, we don't clear isCameraOn, but nothing will be uploaded
+                    }
+                }
+            } else {
+                if (localStream) {
+                    localStream.getTracks().forEach(t => t.stop());
+                    setLocalStream(null);
+                    if (videoRef.current) videoRef.current.srcObject = null;
+                }
+            }
+        };
+        syncHardware();
+
         // --- BROWSER WEBCAM CAPTURE LOOP ---
         let captureInterval: NodeJS.Timeout;
         
@@ -332,7 +360,8 @@ export default function Dashboard() {
                 const canvas = canvasRef.current;
                 const context = canvas.getContext('2d');
                 
-                if (video.readyState === video.HAVE_ENOUGH_DATA && context) {
+                // Only capture if the video is actually playing and has data
+                if (video.readyState >= 2 && context) {
                     canvas.width = 640;
                     canvas.height = 480;
                     context.drawImage(video, 0, 0, 640, 480);
@@ -341,7 +370,7 @@ export default function Dashboard() {
                     const token = localStorage.getItem("access_token");
                     
                     try {
-                        await fetch(`${API_BASE_URL}/api/camera/upload_frame`, {
+                        const res = await fetch(`${API_BASE_URL}/api/camera/upload_frame`, {
                             method: "POST",
                             headers: { 
                                 'Content-Type': 'application/json',
@@ -349,11 +378,12 @@ export default function Dashboard() {
                             },
                             body: JSON.stringify({ image: imageData })
                         });
+                        if (!res.ok) console.debug("Frame upload rejected by server");
                     } catch (err) {
-                        console.debug("Frame upload skipped");
+                        console.debug("Frame upload offline");
                     }
                 }
-            }, 300); // 3-4 FPS is enough for monitoring and keeps bandwidth low
+            }, 300); 
         };
 
         if (isCameraOn && activeSource === 'webcam') {
@@ -366,7 +396,7 @@ export default function Dashboard() {
             clearInterval(centralInterval);
             if (captureInterval) clearInterval(captureInterval);
         };
-    }, [isCameraOn, activeSource]);
+    }, [isCameraOn, activeSource, localStream]);
 
     const toggleCamera = async () => {
         const token = localStorage.getItem("access_token");
@@ -385,27 +415,7 @@ export default function Dashboard() {
             if (res.ok) {
                 const data = await res.json();
                 setIsCameraOn(data.active);
-                
-                // Handle Local Browser Camera Hardware
-                if (data.active && activeSource === 'webcam') {
-                    try {
-                        const stream = await navigator.mediaDevices.getUserMedia({ 
-                            video: { width: 640, height: 480 } 
-                        });
-                        setLocalStream(stream);
-                        if (videoRef.current) {
-                            videoRef.current.srcObject = stream;
-                        }
-                    } catch (err) {
-                        console.error("Browser camera access denied:", err);
-                        alert("Camera Access Denied: Please allow camera permissions in your browser.");
-                    }
-                }
-
-                if (!data.active && localStream) {
-                    localStream.getTracks().forEach(t => t.stop());
-                    setLocalStream(null);
-                }
+                // Hardware sync is now handled by useEffect globally
             }
         } catch (err) {
             console.error("Failed to toggle camera.");
@@ -761,11 +771,17 @@ export default function Dashboard() {
                     <div className="bg-slate-100 aspect-video flex items-center justify-center relative border-t border-b border-slate-200">
                         {isCameraOn ? (
                             <img
-                                key={streamKey}
-                                src={processedFrame || `${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}`}
+                                key={`${streamKey}-${isCameraOn}`}
+                                src={`${API_BASE_URL}/api/video_feed?token=${localStorage.getItem('access_token')}&t=${Date.now()}`}
                                 alt="Detection Feed"
                                 className="w-full h-full object-contain"
-                                onError={() => setTimeout(() => setStreamKey(k => k + 1), 2000)}
+                                onError={(e) => {
+                                    console.error("Stream error, falling back to snapshot");
+                                    if (processedFrame) {
+                                        (e.target as HTMLImageElement).src = processedFrame;
+                                    }
+                                    setTimeout(() => setStreamKey(k => k + 1), 3000);
+                                }}
                             />
                         ) : (
                             <div className="text-center space-y-4">
