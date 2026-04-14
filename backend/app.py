@@ -608,9 +608,11 @@ def toggle_camera():
         # Manage Global Processor
         processor = get_or_create_processor()
         
-        # Check if processor successfully opened the source
-        if camera_active and (processor is None or not processor.cap.isOpened()):
-             print(f"[SYSTEM] WARNING: Camera failed to initialize for {get_jwt_identity()}")
+        # Check if processor successfully opened the source (only if it's a hardware cap)
+        if camera_active and processor is not None:
+             cap_opened = processor.cap.isOpened() if processor.cap else True # uploaded mode is "always open"
+             if not cap_opened:
+                print(f"[SYSTEM] WARNING: Camera failed to initialize for {get_jwt_identity()}")
              # We let it pass but log it to identify 500/Crashing issues
 
         # REQUIREMENT: Reset stats when camera is off to avoid "sticky" values on dashboard
