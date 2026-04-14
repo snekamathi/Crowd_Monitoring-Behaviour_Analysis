@@ -83,7 +83,7 @@ with app.app_context():
     db_report_email = get_setting('report_email', '')
 
     detector = CrowdDetector(
-        model_path="models/crowd_custom.pt",
+        model_path=os.path.join(os.path.dirname(__file__), "models", "crowd_custom.pt"),
         confidence=0.20,
         iou_threshold=db_iou,
         img_size=640,
@@ -203,7 +203,7 @@ class AsyncCrowdProcessor:
         except: pass
         
         self.live_detector = CrowdDetector(
-            model_path="models/crowd_custom.pt",
+            model_path=os.path.join(os.path.dirname(__file__), "models", "crowd_custom.pt"),
             confidence=db_conf,
             iou_threshold=0.45,
             img_size=480 # Reduced from 640 to 480 for 30%+ performance boost on CPU
@@ -466,7 +466,9 @@ class AsyncCrowdProcessor:
             except queue.Empty:
                 continue
             except Exception as ai_err:
-                print(f"[PROCESSOR-AI] Worker Error: {ai_err}")
+                err_msg = f"AI Worker Error: {str(ai_err)}"
+                print(f"[PROCESSOR-AI] {err_msg}")
+                global_stats["last_error"] = err_msg
 
     def get_frame(self, as_base64=False):
         """Returns the best available frame for display."""
