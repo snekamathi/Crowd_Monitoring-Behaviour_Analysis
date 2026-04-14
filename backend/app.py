@@ -83,7 +83,7 @@ with app.app_context():
     db_report_email = get_setting('report_email', '')
 
     detector = CrowdDetector(
-        model_path="yolov8n.pt",
+        model_path="models/crowd_custom.pt",
         confidence=0.20,
         iou_threshold=db_iou,
         img_size=640,
@@ -196,14 +196,14 @@ class AsyncCrowdProcessor:
         
         # REQUIREMENT 2 & 4: Optimized Confidence Threshold
         # Link to persistent settings from database (Requirement 4: Persistance)
-        db_conf = 0.25
+        db_conf = 0.20
         try:
             with app.app_context():
-                db_conf = float(get_setting('confidence', 0.25))
+                db_conf = float(get_setting('confidence', 0.20))
         except: pass
         
         self.live_detector = CrowdDetector(
-            model_path="yolov8n.pt",
+            model_path="models/crowd_custom.pt",
             confidence=db_conf,
             iou_threshold=0.45,
             img_size=480 # Reduced from 640 to 480 for 30%+ performance boost on CPU

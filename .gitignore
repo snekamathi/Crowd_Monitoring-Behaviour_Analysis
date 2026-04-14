@@ -38,6 +38,8 @@ server*.log
 backend/*.pt
 *.pt
 yolov8*.pt
+!backend/yolov8n.pt
+!backend/models/crowd_custom.pt
 
 # Uploads and Assets
 backend/static/uploads/
